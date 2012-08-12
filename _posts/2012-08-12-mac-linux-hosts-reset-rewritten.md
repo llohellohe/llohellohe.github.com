@@ -31,4 +31,4 @@ title: hosts重启后被重写
 		建立软链
 		sudo ln -s /etc/hosts.ac /etc/hosts
 		
-搞定
+搞定。
