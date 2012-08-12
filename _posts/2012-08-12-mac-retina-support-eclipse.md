@@ -3,7 +3,7 @@ layout: post
 category: mac
 description: RMBP ,Mac book Retina 支持Eclipse
 keywords: retina support eclipse
-titile: mac book pro retina 支持 eclipse
+title: mac book pro retina 支持 eclipse
 summary: mac book pro 上的eclipse 支持视网膜屏幕
 ---
 有没有发现，兴冲冲的在新买的Retina Mac Book Pro 上装上了Eclipse，
