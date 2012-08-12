@@ -8,7 +8,7 @@ summary: 解决Mac重启后，hosts被重写的问题。
 title: hosts重启后被重写
 ---
 
-## 重启后 /etc/hosts 被重写的问题
+
 以前发现在Ubuntu重启后，`hosts` 文件又恢复到了修改前，十分奇怪。
 
 一开始觉得是Linux的问题，最近在Mac上同样的现象又出现了。
