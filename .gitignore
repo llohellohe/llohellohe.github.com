@@ -1,4 +1,6 @@
 *.swp
 _site
+_plugin
+.DS_Store
 blog.sublime-project
 blog.sublime-workspace
