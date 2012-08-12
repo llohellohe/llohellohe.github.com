@@ -1,2 +1,4 @@
 *.swp
 _site
+blog.sublime-project
+blog.sublime-workspace
