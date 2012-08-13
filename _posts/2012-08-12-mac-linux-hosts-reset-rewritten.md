@@ -32,3 +32,11 @@ title: hosts重启后被重写
 		sudo ln -s /etc/hosts.ac /etc/hosts
 		
 搞定。
+
+原始的/etc/hosts文件内容如下：
+		
+		255.255.255.255 broadcasthost
+		::1             localhost
+		fe80::1%lo0     localhost
+		
+如果不小心被误删除了，可以拿这个恢复。
