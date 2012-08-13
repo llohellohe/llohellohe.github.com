@@ -18,25 +18,41 @@ title: hosts重启后被重写
 看来原因找到了。
 
 ### Cisco AnyConnect 捣的鬼
-仔细回想了一下，发现/ect/hosts.ac是出现在 VPN 客户端:`Cisco AnyConnect`后，
+仔细回想了一下，发现/ect/hosts.ac是出现在 VPN 客户端:`Cisco AnyConnect`后,hosts.ac应该是any client的缩写。
 
 这货每次在重启后，都会把/etc/hosts重新覆盖一遍。
 
 所以,除非你同时修改了/etc/hosts.ac 文件，否则单独只修改/etc/hosts都会被重置。
 
-因此解决方法很简单：
+####下面开始实验证明一下
 
-		删除原来hosts.ac
-		sudo rm /etc/hosts.ac
-		建立软链
-		sudo ln -s /etc/hosts.ac /etc/hosts
-		
-搞定。
+#####首先测试下做个软链是否有效：
 
-原始的/etc/hosts文件内容如下：
+
+	删除原来hosts.ac
+	sudo rm /etc/hosts.ac
+	建立软链
+	sudo ln -s /etc/hosts.ac /etc/hosts
 		
-		255.255.255.255 broadcasthost
-		::1             localhost
-		fe80::1%lo0     localhost
+重启后发现，两个hosts文件都不在了。。。悲剧 。
+
+#####尝试反着操作
+	删除原来hosts
+	sudo rm /etc/hosts
+	建立软链
+	sudo ln -s /etc/hosts /etc/hosts.ac
 		
-如果不小心被误删除了，可以拿这个恢复。
+再次重启，发现软连接消失了，依旧变成了连个一模一样的hosts.ac 。
+
+### 实验证明
+每次重启，hosts.ac都会重新复制给hosts，
+
+所以如果你希望hosts保留的话，每次修改hosts后，请同时复制给hosts.ac文件
+
+
+如果不小心被误删除了，可以使用原始的hosts文件内容恢复：
+		
+	255.255.255.255 broadcasthost
+	::1             localhost
+	fe80::1%lo0     localhost
+		
