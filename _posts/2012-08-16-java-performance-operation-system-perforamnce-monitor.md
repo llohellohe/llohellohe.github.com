@@ -1,6 +1,6 @@
 ---
 layout: post
-category: JavaPerformance
+category: Java Performance 读书笔记
 description: 《Java Performance》的读书笔记，第一章和第二章
 keywords: vmstat, java performance, performance tunning
 title: 操作系统的性能监测
