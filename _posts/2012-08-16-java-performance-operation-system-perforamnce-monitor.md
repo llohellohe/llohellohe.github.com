@@ -106,3 +106,23 @@ Network I/O也会影响程序的性能；
 如果网络延迟严重、或者数据一直在网卡缓冲区排队，都会影响到程序的性能。
 
 尽量使用Java的NIO代替原来的Blocking Socket。 
+
+###七.磁盘 I/O
+磁盘I/O往往是性能监测的重点，可以使用`iostat`命令查看磁盘的负载状态。
+
+	iostat -x
+	avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           2.54    0.02    1.28    0.31    0.00   95.86
+
+	Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   	await r_await w_await  svctm  %util
+	sda               0.42     3.92    1.35    1.38    14.09    21.02    25.72     0.03   	12.50    4.30   20.50   3.21   0.88
+	
+其中:
+* %iowait 是指cpu等待I/O设备的空余时间
+* %idle 是指cpu的空闲时间（不等待I/O设备） 
+* rrqm/s 每秒合并的读请求数,read request merged / s 
+* wrqm/s 每秒合并的写请求数,write request merged / s
+* r/s 每秒读请求数
+* w/s 每秒写请求数
+* rKB/s 每秒读入数
+* wKB/s 每秒写入数
