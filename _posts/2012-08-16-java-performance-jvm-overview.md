@@ -30,11 +30,11 @@ summary: JVM Overview
 简单的参数介绍：
 
 
-1.	-XX:-DisableExplicitGC 禁用显示GC
-2.	-XX:MaxNewSize=size 新生代占整个堆内存的大小
-3.	-XX:ErrorFile=./hs_err_pid<pid>.log JVM crash时，将错误信息打印到某个文件
-4.	-XX:-PrintGCDetails 开启GC细节
-5.	-XX:-TraceClassLoading class loader装载细节
+	1.	-XX:-DisableExplicitGC 禁用显示GC
+	2.	-XX:MaxNewSize=size 新生代占整个堆内存的大小
+	3.	-XX:ErrorFile=./hs_err_pid<pid>.log JVM crash时，将错误信息打印到某个文件
+	4.	-XX:-PrintGCDetails 开启GC细节
+	5.	-XX:-TraceClassLoading class loader装载细节
 
 具体非稳态参数可以参考：
 [中文](http://kenwublog.com/docs/java6-jvm-options-chinese-edition.htm)
