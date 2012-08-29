@@ -2,13 +2,13 @@
 layout: post
 category: JVM
 description: 《深入Java虚拟机》的读书笔记
-keywords: jvm
-title: 类的生命周期
+keywords: jvm, java 类加载, 类加载, 显示类加载,
+title: 类和对象的生命周期【更新】
 tags: [java, class, JVM]
-summary: 类的生命周期
+summary: 介绍了类和对象的生命周期接受，以及如何查看虚拟机类加载的过程。
 ---
 
-##类的生命周期
+##Section 1:类和对象的生命周期
 
 1.	装载
 2.	连接（验证、准备、解析）
@@ -39,4 +39,54 @@ summary: 类的生命周期
 初始化是为类变量赋予正确的初始值。
 所有的类变量初始化语句和静态初始化器都会被放在`<clinit>`方法里。
 
+###四.卸载
+当类不再需要被使用是，类就会被从方法区中释放
+
+
+##Section 2:类的实例（对象）的生命周期
+类的实例可以通过以下四种方法创建：
+
+1.	new
+2.	反序列化的readObject
+3.	反射的Class.newInstance()或者java.refelect.Constructor
+4.	clone
+
+编译器会为每个类生成至少一个初始化方法：`init`。
+
+对象的创建还包含隐式的情况（多为编译器优化）。如
+	
+	String a="abc"+var1
+
+会创建2个String对象和一个StringBuffer对象等。
+
+##Section 3:类加载的查看
+通过JVM参数 -verbose:class 可以查看类的加载情况。
+
+参考[此处](https://github.com/llohellohe/cp/tree/master/src/yangqi/hotspot/classlifecycle)的代码例子.
+
+	类Student继承了类People。
+	接口StudentService继承了接口PeopleService。
+	DummyServiceImpl实现了StudentService。
+	
+	在Show.java的main方法中如下调用
+	
+	Student s=new Student();
+		
+	new DummyServiceImpl();
+	
+
+使用 `java -verbose:class Show`执行后可以看到（已经略去其它java必须类的加载）:
+	
+	[Loaded yangqi.hotspot.classlifecycle.Show from file:/Users/yangqi/opensource/cp/bin/]
+	[Loaded yangqi.hotspot.classlifecycle.People from file:/Users/yangqi/opensource/cp/bin/]
+	[Loaded yangqi.hotspot.classlifecycle.Student from file:/Users/yangqi/opensource/cp/bin/]
+	[Loaded yangqi.hotspot.classlifecycle.PeopleService from file:/Users/yangqi/opensource/cp/bin/]
+	[Loaded yangqi.hotspot.classlifecycle.StudentService from file:/Users/yangqi/opensource/cp/bin/]
+	[Loaded yangqi.hotspot.classlifecycle.DummyServiceImpl from file:/Users/yangqi/opensource/cp/bin/]
+	
+可以看到,Show作为启动类，第一个被加载。
+
+因为Student的父类是People，所以要初始化Student必须加载People。
+
+DummyServiceImpl的接口和父接口同理，不过此时虽然加载了这些接口，但是他们并没有被初始化。参考Section1中初始化的6中情况中的第五种。	
 
