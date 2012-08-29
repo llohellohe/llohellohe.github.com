@@ -59,7 +59,7 @@ summary: 介绍了类和对象的生命周期接受，以及如何查看虚拟�
 
 会创建2个String对象和一个StringBuffer对象等。
 
-##Section 3:类加载的查看
+##Section 3:查看类加载的日志
 通过JVM参数 -verbose:class 可以查看类的加载情况。
 
 参考[此处](https://github.com/llohellohe/cp/tree/master/src/yangqi/hotspot/classlifecycle)的代码例子.
