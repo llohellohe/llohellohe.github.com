@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Yangqi's Home Page
-tagline: 追求自由和平等
+tagline: 河蟹打败地球
 ---
 {% include JB/setup %}
 
