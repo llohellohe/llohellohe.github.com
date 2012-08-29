@@ -6,7 +6,7 @@ tagline: 追求自由和平等
 {% include JB/setup %}
 
 
-![hexie hero](http://2.bp.blogspot.com/-Q565razl-6g/TbfxGGYQyLI/AAAAAAAACcw/gLn9vtyU2rQ/s1600/hexie.jpg)
+![hexie hero](http://farm9.staticflickr.com/8169/7887357802_01a7acd0c1_b.jpg)
 
 ## 最近发表的文章
 
