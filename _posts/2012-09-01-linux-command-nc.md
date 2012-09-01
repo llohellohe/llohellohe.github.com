@@ -3,7 +3,7 @@ layout: post
 category: Linux
 description: Linux命令和Shell脚本
 keywords: linux command, Shell, Bash
-title: nc命令替代scp
+title: 使用nc无密码传输文件
 tags: [linux, Shell , Bash]
 summary: 使用nc传输文件
 ---
