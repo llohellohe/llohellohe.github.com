@@ -1,13 +1,13 @@
 ---
 layout: post
 category: Java Network
-description: Java 网络编程基础, Java IP地址, Java InetAddress用法。
-keywords: java network, java socket, java InetAddress
-title: InetAddress IP地址
-tags: [java, java network, InetAddress, Inet4Address, Inet6Address]
-summary: InetAddress Java IP地址
+description: Java 网络编程基础, Java IP地址, Java InetAddress用法,以及Socket地址的表示。
+keywords: java network, java socket, java InetAddress, Socket Address 用法, InetSocketAddress用法。
+title: IP地址和Socket地址：InetAddress、InetSocketAddress
+tags: [java, java network, InetAddress, Inet4Address, Inet6Address, InetSocketAddress]
+summary: Java IP地址和Socket地址的表示InetAddress、InetSocketAddress，以及用法。
 ---
-IP地址的代表类InetAddress：
+###一.IP地址的代表类：InetAddress
 
 InetAddress代表IP协议的地址，它的两个子类Inet4Address和Inet6Address分别代表IPv4和IPv6协议。
 ps:IP协议是UDP\TCP协议的基础。
@@ -46,7 +46,20 @@ IPv6地址总共有8段，每段用16进制表示，连续的0可以表示：：
 比如2001:da8:9000::7
 
 
-###源代码[查看](https://github.com/llohellohe/cp/blob/master/src/yangqi/net/InetAddressRunner.java)
+###InetAddress源代码[查看](https://github.com/llohellohe/cp/blob/master/src/yangqi/net/InetAddressRunner.java)
+
+###二.Socket地址代表类：InetSocketAddress
+Socket地址可以IP地址(InetAddress)+端口的表示。
+
+因此创建InetSocketAddress有三种方法：
+
+	1.new InetSocketAddress(int port):将内部通过InetAddress.anyLocalAddress()创建一个通配的IP地址[0.0.0.0或者::0]。
+	2.new InetSocketAddress(String host,int port):将内部通过InetAddress.getByName(host)创建一个通配的IP地址。
+	3.new InetSocketAddress(InetAdress address,int port)。
+	
+最终都将装换为InetAddress+port表示的形式。
+
+	0.0.0.0代表网络上的所有主机，而非广播地址。广播地址是255.255.255.255
 
 
 
