@@ -3,9 +3,9 @@ layout: post
 category: mac
 tags : [hosts, mac, linux]
 keywords: hosts被重写,重启后hosts被重写,hosts rewitten after reboot
-description: mac linux /etc/hosts文件重启后被重写问题解决，Cisco AnyConnect的/etc/hosts.ac文件是问题的原因，
+description: mac linux /etc/hosts文件重启后被重写问题解决，Cisco AnyConnect的/etc/hosts.ac文件是问题的原因，通过mh脚本可以解决这个问题。
 summary: 解决Mac重启后，hosts被重写的问题。
-title: hosts重启后被重写
+title: hosts重启后被重写及解决方案
 ---
 
 
@@ -55,4 +55,22 @@ title: hosts重启后被重写
 	255.255.255.255 broadcasthost
 	::1             localhost
 	fe80::1%lo0     localhost
+	
+### 偷懒的解决方案
+
+在BASH的PATH目录下，创建`mh`脚本，以后通过这个脚本修改hosts文件
+
+	#!/bin/bash
+
+	if [ -f /etc/hosts ];then
+        echo "/etc/hosts exists"
+        sudo rm /etc/hosts
+	fi
+
+	if [ ! -L /etc/hosts ];then
+        echo "link /etc/hosts.ac => /etc/hosts"
+        sudo ln -s /etc/hosts.ac /etc/hosts
+	fi
+
+	sudo vi /etc/hosts.ac
 		
