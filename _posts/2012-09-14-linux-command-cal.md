@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Shell, Bash
+category: Bash
 description:  Cal 命令，Linux查看日历，cal用法
 keywords: Cal 命令，Linux查看日历，cal用法
 title: cal查看日历【第几周，第几天】
