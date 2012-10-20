@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Shell
+category: Shell, Bash
 tags : [linux, shell, bash, 算术操作]
 keywords: bash, 算术操作
 description: 本文介绍了如何在Bash中执行算术操作，加减乘除等。
