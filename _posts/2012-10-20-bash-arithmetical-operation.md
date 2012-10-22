@@ -26,11 +26,6 @@ title: BASH中的算术操作
 	h=$((j=(i+20)-1*3))
 	echo $h
 
-当然，也可以使用$()方式拿到任何命令的返回值：
-
-	echo $(((j=j%10)))
-这里有三对括号，别忘了，$()是拿到(())号的运算结果。
-
 双括号支持自增操作：
 	
 	i=1
@@ -70,4 +65,4 @@ bc是个小型的计算器，你可以`bc`下，它会出现一个轻便的计�
 	echo $l
 	##l=42
 
-算有源代码示例可以在此[查看](https://github.com/llohellohe/shell-world/blob/master/suanshu.sh)。
+所有源代码示例可以在此[查看](https://github.com/llohellohe/shell-world/blob/master/suanshu.sh)。
