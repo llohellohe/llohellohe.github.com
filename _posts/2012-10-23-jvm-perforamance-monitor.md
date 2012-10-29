@@ -70,7 +70,7 @@ summary: JVM Performance Monitor
     
     
 ###Seciont 2:观察GC的工具
-#######jconsole
+#####jconsole
 系统自带的监测工具，直接启动，连接上即可。
 
 对于远程应用，需要这个应用在启动的时候带上参数`-Dcom.sun.management.jmxremote`
@@ -78,4 +78,26 @@ summary: JVM Performance Monitor
 jconsole可以实时查看系统的堆、非堆等情况。
 
 其中非堆部分有一块叫做Code Cache的区域，这是给JIT使用的内存，以及用来存储编译后代码的地方。
-    
+
+
+#####virtual vm
+使用virtual vm 可以观察本地和远程的java进程。
+
+观察远程时，必须在远程启动jstatd，方可连上。
+
+ps:jps 也可以观察远程的java进程。
+
+virtual vm 不但可以直接dump内存查看，也可以查看heap 的dump文件。
+
+	jmap -dump:format=b,file=/tmp/map.hprof 4491  
+可以直接file=>load 打开dump的内存并分析。
+######virtual gc
+可以在virtual vm中安装virtual gc插件，可以查看GC时的图标信息。  
+ps: 
+a.`-verbose:class` 可以查看class的加载信息
+b.jstack 查看死锁信息时比较有用，注意查看多个线程等待的锁的地址信息(下面的0x22e88b10)。
+	waiting to lock <0x22e88b10> (a Queue)
+	
+	at Queue.enqueue(Queue.java:31)	- waiting to lock <0x22e88b10> (a Queue)
+	
+	
