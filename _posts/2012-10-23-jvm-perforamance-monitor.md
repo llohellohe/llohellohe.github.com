@@ -97,7 +97,6 @@ virtual vm 不但可以直接dump内存查看，也可以查看heap 的dump文�
 a.`-verbose:class` 可以查看class的加载信息
 b.jstack 查看死锁信息时比较有用，注意查看多个线程等待的锁的地址信息(下面的0x22e88b10)。
 	waiting to lock <0x22e88b10> (a Queue)
-	
 	at Queue.enqueue(Queue.java:31)	- waiting to lock <0x22e88b10> (a Queue)
 	
 	
