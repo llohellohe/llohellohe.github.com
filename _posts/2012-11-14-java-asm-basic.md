@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Deep In Java
+category:Java
 description: 《ASM》的读书笔记
 keywords:java , java asm ,asm 
 title: JVM Performance Monitor
-tags: [java, 性能, JVM]
+tags: [java, asm, JVM]
 summary: Java ASM 基础
 ---
 
