@@ -11,6 +11,8 @@ summary: Java ASM 基础
 
 以下类的说明，均以asm 4.0为准。
 
+本文中的代码示例源代码可以在此[查看](https://github.com/llohellohe/cp/blob/master/src/yangqi/asm/ClassPrinter.java)。
+
 ###基本类图
 ASM的基础类结构如下图所示：
 
