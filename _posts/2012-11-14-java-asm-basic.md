@@ -36,6 +36,19 @@ public void visit(
         String superName,
         String[] interfaces)
         
+其中signature为泛型相关的签名，如：
+
+	public class ConPeople <T,F>extends PeopleWithSignature<T>
+那么它的签名为
+
+	<T:Ljava/lang/Object;F:Ljava/lang/Object;>Lyangqi/asm/PeopleWithSignature<TT;>;
+	
+如
+	
+	public class ConPeople2 extends PeopleWithSignature<String>
+那么它的签名为
+
+	Lyangqi/asm/PeopleWithSignature<Ljava/lang/String;>;
 
 2.访问类的源代码文件：
  public void visitSource(String source, String debug)  
