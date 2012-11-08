@@ -20,8 +20,8 @@ Java代码是在线程中执行的，每个线程都有自己的执行堆栈（e
 
 桢又有两部分组成：
 
-1. 本地变量区local variable
-2. 操作数栈operand stack
+1. **本地变量区local variable**
+2. **操作数栈operand stack**
 
 其中本地变量是可以根据下标随机访问的数组，而操作数栈是一个后入先出的栈。
 
@@ -218,3 +218,21 @@ iload 5是说将本地变量中的滴6个元素压入操作数栈中。
 aload_2 是将本地变量中的第三个元素以对象形式压入栈中。
 
 aload   4 是将本地变量中的第四个元素以对象形式压入栈中。
+
+
+其它Opcodes如：
+
+`invokestatic` 调用静态方法。
+
+`invokevirtual`调用实例方法。
+
+`invokespecial` 调用超类构造方法、私有方法、实例化初始方法。
+
+`invokeinterface` 调用接口的方法。
+
+`ldc`将int fload String从常量池推送到栈顶。
+
+`ldc2_w`将double\long 从常量池推送到栈顶（宽索引）。
+
+`iinc`将int类型增加指定值。
+
