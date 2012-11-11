@@ -121,7 +121,12 @@ Callable只有一个方法：
 
 通过Future的get()方法可以获得返回值，改方法会一直阻塞，知道获得值。
 
-通过 `Executors.callable(Runnable task, T result)` 可以讲一个Runnable准换成一个Callable
+通过 
+
+	Executors.callable(Runnable task, T result)
+
+
+可以讲一个Runnable准换成一个Callable
 
 
 ####Future
