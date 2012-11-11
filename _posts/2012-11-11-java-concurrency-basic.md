@@ -125,7 +125,7 @@ Callable只有一个方法：
 	ExecutorService.submit(Callable<T>)
 
 	
-可以返回Future<T> 。
+可以返回`Future<T>`
 
 
 
