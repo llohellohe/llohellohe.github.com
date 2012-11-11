@@ -117,7 +117,10 @@ Callable只有一个方法：
 1.	具有返回值（可以通过Future.get()获得）。单纯通过Runnable的run方法是无法获得返回值的。
 2.	抛出异常，所有在Thread或者Runnable里面的异常会被吃掉，除非你做额外控制（比如自己出测了ExceptionHandler）。
 	
-通过`ExecutorService.submit(Callable<T>)`可以返回Future<T>。
+通过`ExecutorService.submit(Callable<T>)`可以返回Future<T> 。
+
+
+
 
 通过Future的get()方法可以获得返回值，改方法会一直阻塞，知道获得值。
 
