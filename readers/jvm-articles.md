@@ -34,3 +34,11 @@ Jvm中参数`-XX:LargePageSizeInBytes=10m`
 
 如果操作系统不支持大页内存，那么调了JVM参数也是白搭.
 
+
+
+
+###字节码
+[操作码助记符](http://blog.csdn.net/jiangshide/article/details/7713505)
+
+###规范
+[Java7 VM Spec](http://docs.oracle.com/javase/specs/jvms/se7/html/index.html)
