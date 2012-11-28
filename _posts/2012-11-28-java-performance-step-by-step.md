@@ -1,3 +1,13 @@
+---
+layout: post
+category: Java Performance 读书笔记
+description: 《Java Performance》的读书笔记第七章
+keywords: vmstat, java performance, performance tunning
+title: JVM Performance Step By Step
+tags: [java, 性能, JVM]
+summary: JVM Performance Step By Step
+---
+
 ####概述.应用的系统性需求
 
 1.	可用性 Availiability
