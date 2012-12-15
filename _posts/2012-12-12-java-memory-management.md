@@ -152,5 +152,6 @@ CMS整个过程中，只有initial mark和remark阶段会暂定应用，所以�
 
 
 
-
+####五.一些场景
+[利用Arena Allocation避免HBase触发Full GC](http://kenwublog.com/avoid-full-gc-in-hbase-using-arena-allocation)  通过打开`-XX:PrintFLSStatistics=1 ` 可以看到每次GC后Heap的量
 
