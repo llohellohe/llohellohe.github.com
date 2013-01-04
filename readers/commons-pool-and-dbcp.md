@@ -67,6 +67,8 @@
 #####GenericObjectPool
 行为同StackObjectPool类似。
 
+可以定义获得和归还连接时的一些行为。
+
 
 ####DBCP连接池配置
 	
@@ -144,5 +146,6 @@ BasicDataSource.getConnection()
 
 接着通过DriverManager.getDriver(url)获得一个Driver。（通过遍历DriverInfo队列，逐次通过Driver.acceptUrl(url)）。
 
+只有使用这个物理连接工厂，创建PoolableConnectionFactory,继而创建一个连接池。
 
 
