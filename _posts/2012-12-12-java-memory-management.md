@@ -148,7 +148,22 @@ CMS整个过程中，只有initial mark和remark阶段会暂定应用，所以�
 
 #####其它
 1.	`-XX:ParallelGCThreads=3`,在并行GC\并行压缩GC\CMS中并行GC的线程数，默认是CPU的个数。
+2.	`-XX:MaxTenuringThreshold`
+在新生代中对象存活次数(经过Minor GC的次数)后仍然存活，就会晋升到旧生代。
 
+3.	`-XX:TargetSurvivorRatio`
+一个计算期望存活大小Desired survivor size的参数.
+
+计算公式：
+
+ (survivor_capacity * TargetSurvivorRatio) / 100 * sizeof(a pointer)：
+survivor_capacity（一个survivor space的大小）乘以TargetSurvivorRatio，
+ 
+表明所有age的survivor space对象的大小如果超过Desired survivor size，则重新计算threshold，以age和
+
+MaxTenuringThreshold的最小值为准，否则以MaxTenuringThreshold为准.
+
+即通过`jstat -gcnew `看到的TT和MTT
 
 
 
