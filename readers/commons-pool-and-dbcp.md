@@ -130,10 +130,10 @@ DriverManager.getConnection()方法用于获得一个数据连接，
 通过遍历DriverInfo队列的方式，尝试逐个调用Driver的connect方法获得连接。
 
 
-###使用连接池
+#####使用连接池获得连接
 BasicDataSource.getConnection()
 
-####创建物理连接工厂
+#####创建物理连接工厂
 接口ConnectionFactory定义了物理连接的创建工厂，DriverConnectionFactory是其一个实现。
 
 	
