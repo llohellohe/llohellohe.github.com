@@ -1,5 +1,5 @@
 	
-####Commons.pool
+###一.Commons.pool
 
 #####对象池的接口`ObjectPool<T>`
 改接口定义了对象池的一些通用行为：
@@ -10,11 +10,10 @@
 4.	无效对象：invalidateObject(T obj)
 5.	其它行为：清理空闲对象、关闭连接池、获得相关配置参数等。
 
+#####创建对象的工厂
+对象池需要配合`PoolableObjectFactory`才能正常工作，对象工厂用于解耦对象池中对象的物理创建和销毁；
 
-#####通用对象池GenericObjectPool
-改类实现了接口ObjectPool，并且定义了FIFO\LILO两种对象淘汰模式。
-
-它需要配合`PoolableObjectFactory`才能正常工作，这个Factory的makeObject方法用于产生对象。
+比如Factory的makeObject方法用于产生对象。
 
 接口 PoolableObjectFactory 定义了如下行为：
 
@@ -24,7 +23,9 @@
 4.	激活对象：activateObject(T obj)
 5.	钝化对象：passivateObject(T obj)
 
-#####StackObjectPool
+
+
+#####栈实现的对象池：StackObjectPool
 使用栈实现的对象池，使用实例可以看下[这段代码](https://github.com/llohellohe/pools/blob/master/src.test/test/pool/ParseThingsWithPool.java)。
 
 
@@ -64,13 +65,23 @@
 1.	从池中拿对象的时候：会调用PoolableObjectFactory的makeObject()创建对象，然后调用activateObject()方法激活对象，然后调用validateObject()方法验证对象。
 2.	从池中返回对象的时候：会调用PoolableObjectFactory的validateObject()方法后，判断是需要销毁对象(destoryObject())，还是将对象钝化（passivateObject()）
 
-#####GenericObjectPool
-行为同StackObjectPool类似。
 
-可以定义获得和归还连接时的一些行为。
+#####通用对象池：GenericObjectPool
+改类实现了接口ObjectPool，并且定义了FIFO\LILO两种对象淘汰模式。
+
+可以定义获得和归还连接时的一些行为。比如测试对象是否可用。
+
+使用实例可以看下[这段代码](https://github.com/llohellohe/pools/blob/master/src.test/test/pool/ParseThingsWithPool.java)。
+
+特别的：分配对象的时候，先往一个队列(LinkedList)里面放入分配请求，然后再逐个分配对象。
+
+获得对象是从_pool（双向列表）中获得的。
 
 
-####DBCP连接池配置
+
+
+
+###二.DBCP连接池配置
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 				 <property name="driverClassName" value="com.mysql.jdbc.Driver" />
