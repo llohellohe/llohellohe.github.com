@@ -159,4 +159,6 @@ BasicDataSource.getConnection()
 
 只有使用这个物理连接工厂，创建PoolableConnectionFactory,继而创建一个连接池。
 
+###参考资料
+IBM上的[教程](http://www.ibm.com/developerworks/cn/java/l-common-pool/index.html)
 
