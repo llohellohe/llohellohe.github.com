@@ -1,11 +1,11 @@
 ---
 layout: post
 category: Linux
-description:  Cal 命令，Linux查看日历，cal用法
-keywords: Cal 命令，Linux查看日历，cal用法
-title: cal查看日历【第几周，第几天】
-tags: [cal, bash, linux]
-summary: cal命令的用法
+description: curl 的用法，使用curl get post 提交表单，提交文件，保存cookie，带cookie访问
+keywords: curl用法，curl post,curl get,curl 提交文件
+title: curl使用
+tags: [curl, bash, linux]
+summary: curl 的用法，使用curl提交表单，get ,post
 ---
 
 #####从打开百度开始
