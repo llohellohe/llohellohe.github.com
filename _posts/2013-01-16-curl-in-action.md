@@ -20,6 +20,9 @@ summary: curl 的用法，使用curl提交表单，get ,post
 7.	处理header
 8.	用curl查有道字典
 
+注：在这里可以下载到演示的[PHP代码](https://github.com/llohellohe/llohellohe.github.com/tree/master/code/learning-curl)。
+
+
 ###从打开百度开始
 
 	curl "http://www.baidu.com"
