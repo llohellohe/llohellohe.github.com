@@ -8,6 +8,18 @@ tags: [curl, bash, linux]
 summary: curl 的用法，使用curl提交表单，get ,post
 ---
 
+####能学到什么？
+本文将教你基本的curl方法，你能学到用CURL：
+
+1.	抓取一个网页
+2.	伪造User-agent,refer
+3.	get\post提交一个表单
+4.	上传文件
+5.	处理cookie
+6.	处理重定向
+7.	处理header
+8.	用curl查有道字典
+
 #####从打开百度开始
 
 	curl "http://www.baidu.com"
@@ -18,7 +30,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/first-baidu.png)
 
-#####保存页面:
+#####curl 保存页面:
 	
 	curl "http://www.baidu.com" > /tmp/baidu.html
 
@@ -32,13 +44,13 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 如果URL中具有文件名，那么使用 `-O` 参数也会更方便些，它将直接用url中的文件名称来保存页面。
 
-#####安静点
+#####curl 安静点
 
 `-s`参数可以屏蔽进度条之类的输出，稍微清净点。
 	
 	curl -s -o /tmp/baidu3.html "http://www.baidu.com"
 	
-#####指定USER-AGENT
+#####curl 指定USER-AGENT
 
 `-A`参数用来指定USER-AGENT，来看一段PHP代码。
 
@@ -65,12 +77,12 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 
 
-#####指定referer
+#####curl 指定referer
 
 	curl -e "https://www.google.com/"  http://localhost/learing-curl/show-server-info.php
 
 
-#####Get请求
+#####curl Get 请求
 
 先看下面的PHP代码，用于展示GET和POST的表单参数：
 
@@ -95,7 +107,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/get.png)
 	
 
-#####Post请求
+#####curl Post请求
 	
 	curl   -d "name=1&age=3" http://localhost/learing-curl/post-get.php
 	
@@ -117,11 +129,11 @@ summary: curl 的用法，使用curl提交表单，get ,post
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/header.png)
 
 
-#####保存Header
+#####curl 保存Header
 
 	curl -D header.txt http://www.alibaba.com
 	
-#####处理重定向
+#####curl 处理重定向
 	
 http://localhost/learing-curl/302.php是张会302重定向到百度的页面。
 
@@ -148,7 +160,7 @@ http://localhost/learing-curl/302.php是张会302重定向到百度的页面。
 	
 这样又能看到熟悉的百度页面输出了。
 	
-#####提交文件
+#####curl 提交文件
 
 	curl -F upload_file=@test.data http://localhost/learing-curl/upload.php
 	
@@ -173,14 +185,14 @@ upload.php源代码：
 		
 	?>
 
-####保存cookie
+#####curl 保存cookie
 `-c` 将会用标准格式保存cookie
 
 	curl -c cookie.txt http://www.alibaba.com
 	
 查看cookie.txt会发现一堆cookie，接近1k	
 
-####带Cookie访问 -b 或者--cookie
+#####curl 带Cookie访问
 
 curl -b "name=data" 或者让 curl -b COOKIE.txt 可以带cookie访问页面。
 
