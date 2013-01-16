@@ -9,7 +9,8 @@ summary: curl 的用法，使用curl提交表单，get ,post
 ---
 
 ####能学到什么？
-本文将教你基本的curl方法，你能学到用CURL：
+本文将教你基本的curl方法，你能学到用curl完成如下事情
+
 
 1.	抓取一个网页
 2.	伪造User-agent,refer
