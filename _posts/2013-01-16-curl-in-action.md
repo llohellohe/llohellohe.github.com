@@ -92,7 +92,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 可以看到下面的输出：
 
-	![image](http://llohellohe.github.com/code/learning-curl/imgs/get.png)
+![image](http://llohellohe.github.com/code/learning-curl/imgs/get.png)
 	
 
 #####Post请求
@@ -101,7 +101,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 可以看到下面的输出：
 
-	![image](http://llohellohe.github.com/code/learning-curl/imgs/post.png)
+![image](http://llohellohe.github.com/code/learning-curl/imgs/post.png)
 
 	
 `-d`参数指定表单以POST的形式执行。
@@ -112,9 +112,9 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 	curl -I  http://www.baidu.com
 	
-	可以看到下面的输出：
+可以看到下面的输出：
 
-	![image](http://llohellohe.github.com/code/learning-curl/imgs/header.png)
+![image](http://llohellohe.github.com/code/learning-curl/imgs/header.png)
 
 
 #####保存Header
