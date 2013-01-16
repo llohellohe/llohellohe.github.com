@@ -20,7 +20,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 7.	处理header
 8.	用curl查有道字典
 
-#####从打开百度开始
+###从打开百度开始
 
 	curl "http://www.baidu.com"
 	
@@ -30,7 +30,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/first-baidu.png)
 
-#####curl 保存页面:
+###curl 保存页面:
 	
 	curl "http://www.baidu.com" > /tmp/baidu.html
 
@@ -50,7 +50,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 	curl -s -o /tmp/baidu3.html "http://www.baidu.com"
 	
-#####curl 指定USER-AGENT
+###curl 指定USER-AGENT
 
 `-A`参数用来指定USER-AGENT，来看一段PHP代码。
 
@@ -77,12 +77,12 @@ summary: curl 的用法，使用curl提交表单，get ,post
 	
 
 
-#####curl 指定referer
+###curl 指定referer
 
 	curl -e "https://www.google.com/"  http://localhost/learing-curl/show-server-info.php
 
 
-#####curl Get 请求
+###curl Get 请求
 
 先看下面的PHP代码，用于展示GET和POST的表单参数：
 
@@ -107,7 +107,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/get.png)
 	
 
-#####curl Post请求
+###curl Post请求
 	
 	curl   -d "name=1&age=3" http://localhost/learing-curl/post-get.php
 	
@@ -120,7 +120,7 @@ summary: curl 的用法，使用curl提交表单，get ,post
 
 `-G`强制指定表单以GET方法提交。
 
-#####只展示Header
+###只展示Header
 	
 	curl -I  http://www.baidu.com
 	
@@ -129,11 +129,11 @@ summary: curl 的用法，使用curl提交表单，get ,post
 ![image](http://llohellohe.github.com/code/learning-curl/imgs/header.png)
 
 
-#####curl 保存Header
+###curl 保存Header
 
 	curl -D header.txt http://www.alibaba.com
 	
-#####curl 处理重定向
+###curl 处理重定向
 	
 http://localhost/learing-curl/302.php是张会302重定向到百度的页面。
 
@@ -160,7 +160,7 @@ http://localhost/learing-curl/302.php是张会302重定向到百度的页面。
 	
 这样又能看到熟悉的百度页面输出了。
 	
-#####curl 提交文件
+###curl 提交文件
 
 	curl -F upload_file=@test.data http://localhost/learing-curl/upload.php
 	
@@ -185,14 +185,14 @@ upload.php源代码：
 		
 	?>
 
-#####curl 保存cookie
+###curl 保存cookie
 `-c` 将会用标准格式保存cookie
 
 	curl -c cookie.txt http://www.alibaba.com
 	
 查看cookie.txt会发现一堆cookie，接近1k	
 
-#####curl 带Cookie访问
+###curl 带Cookie访问
 
 curl -b "name=data" 或者让 curl -b COOKIE.txt 可以带cookie访问页面。
 
@@ -220,7 +220,7 @@ curl -b "name=data" 或者让 curl -b COOKIE.txt 可以带cookie访问页面。
 
 ###实例：
 
-####有道字典查询
+###有道字典查询
 
 通过-G -d 的形式提交一个get请求到有道字典，然后截取翻译信息。
 	
