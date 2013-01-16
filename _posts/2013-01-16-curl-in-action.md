@@ -3,7 +3,7 @@ layout: post
 category: Linux
 description: curl 的用法，使用curl get post 提交表单，提交文件，保存cookie，带cookie访问
 keywords: curl用法，curl post,curl get,curl 提交文件
-title: curl使用
+title: curl 使用
 tags: [curl, bash, linux]
 summary: curl 的用法，使用curl提交表单，get ,post
 ---
