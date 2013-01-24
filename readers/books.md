@@ -3,6 +3,8 @@ Java类的书籍：
 
 2012.12.13看完《Java Memorymanagent Whitepaper》
 
+2013.01.22~2013.01.23看完《Rework》
+
 开源源代码阅读：
 
 #### 一. [2013.01.03~2013.0105] commons.pool和dbcp
