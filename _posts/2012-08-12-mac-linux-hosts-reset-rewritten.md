@@ -62,15 +62,20 @@ title: hosts重启后被重写及解决方案
 
 	#!/bin/bash
 
-	if [ -f /etc/hosts ];then
-        echo "/etc/hosts exists"
-        sudo rm /etc/hosts
-	fi
+	#!/bin/bash
+##modify hosts
 
-	if [ ! -L /etc/hosts ];then
-        echo "link /etc/hosts.ac => /etc/hosts"
-        sudo ln -s /etc/hosts.ac /etc/hosts
-	fi
-
-	sudo vi /etc/hosts.ac
+		if [ -f /etc/hosts ];then
+		        echo "/etc/hosts exists,back up to ~/hosts.bak"
+		        cp /etc/hosts ~/hosts.bak
+		        sudo rm /etc/hosts
+		fi
+		
+		if [ ! -L /etc/hosts ];then
+		        echo "link /etc/hosts.ac => /etc/hosts"
+		        sudo ln -s /etc/hosts.ac /etc/hosts
+		fi
+		
+		sudo vi /etc/hosts.ac
+                        
 		
