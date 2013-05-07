@@ -78,4 +78,21 @@ title: hosts重启后被重写及解决方案
 		
 		sudo vi /etc/hosts.ac
                         
+                        
+                        
+在某些版本的os下，软链接可能会有问题，此时可以改成直接拷贝的形式：
+
+	#!/bin/bash
+	##modify hosts
+	
+	if [ -f /etc/hosts ];then
+	        echo "/etc/hosts exists,back up to ~/hosts.bak"
+	        cp /etc/hosts ~/hosts.bak
+	        sudo rm /etc/hosts
+	fi
+	
+	
+	sudo vi /etc/hosts.ac
+	
+	sudo cp /etc/hosts.ac /etc/hosts                        
 		
