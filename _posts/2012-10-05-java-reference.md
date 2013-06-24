@@ -52,7 +52,7 @@ Reference有个ReferenceHandler，在类初始化的时候会启动这个Handler
 
 当对象是弱可达时，垃圾回收器将清除所有该对象的弱引用。
 
-典型的例子是，WeakHashMap，它的Entry<K,V>继承了WeakReference，
+典型的例子是，WeakHashMap，它的`Entry<K,V>`继承了WeakReference，
 
 	 Entry(Object key, V value,
               ReferenceQueue<Object> queue,

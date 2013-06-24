@@ -66,6 +66,7 @@ summary: JVM Performance Monitor
 -XX:+PrintGCApplicationStoppedTime则为应用暂停后的GC时间。上面的Total time for...
 ####显示调用的System.gc()
 对于显示调用的GC，可以看到具有（System）
+
 	[Full GC (System)    [PSYoungGen: 99608K->0K(114688K)]    [PSOldGen: 317110K->191711K(655360K)]    416718K->191711K(770048K)    [PSPermGen: 15639K->15639K(22528K)],    0.0279619 secs]    [Times: user=0.02 sys=0.00, real=0.02 s
     
     
