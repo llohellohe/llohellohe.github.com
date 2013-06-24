@@ -100,7 +100,7 @@ CharBuffer中只定义了抽象的put()和get()系列方法，具体的实现是
 复制时，将创建一个新的HeapCharBuffer实例，但是char[]数组是直接传递的，因此对于元素的任何修改，都将影响到其它heap buffer。
 
 #####标记
-使用reset()将使position重新回到mark设置的地方（对于某些解析处理，这个将非常有用）。如果mark<0，则会抛异常。
+使用reset()将使position重新回到mark设置的地方（对于某些解析处理，这个将非常有用）。如果mark小于0，则会抛异常。
 
 flip(),clear(),rewind()方法总是会将mark设置为-1。
 
