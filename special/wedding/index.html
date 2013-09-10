@@ -1,0 +1,255 @@
+
+<!doctype html>
+<html lang="eng">  
+	
+	<head>
+	<title>我们结婚啦！！！</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+	<!-- GOOGLE FONTS: Oswald and Arimo -->
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic|Oswald:400,300,700|Pinyon+Script' rel='stylesheet' type='text/css' />
+
+	<!-- INCLUDE jQuery -->	
+		<script type="text/javascript" src="js/jquery.js"></script>
+
+	<!-- INCLUDE index_1.html bxSlider plugin -->
+		<script src="js/jquery.bxSlider.min.js" type="text/javascript"></script>
+	
+	<!-- Include the contact form script-->
+		<script type="text/javascript" src="js/jquery.contact.js"></script>
+		
+	<!-- The STYLESHEET Link-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	</head>
+
+	<!-- The HTML5 SHIV - make the HTML5 recognizable by older versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+			<script src="dist/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Calling the index_1.html slider plugin (BXSlider) -->
+		<script type="text/javascript">
+		 	 $(document).ready(function(){
+			  	// calling the bxSlider slider plugin
+			    $('#slider1').bxSlider({
+			    	pager: true,
+			    	auto: true,
+			    	startingSlide: 0,
+			    	controls: false,
+			    	mode: 'fade',
+			    	speed: 1000,
+			    	pause: 6000
+			    });
+		    });
+		</script>
+		
+	<!-- Initialize the ToolTip plugin -->
+		<script src="js/miniTip.js"></script>
+		<script>
+		  $(function() {
+			  $('.tip').miniTip({
+			  	'contentAttribute'      : 'data-tip',
+			    'className'             : 'gray',
+			    'offset'                : 20,
+			    'showAnimateProperties' : {'top': '+=20'},
+			    'hideAnimateProperties' : {'top': '-=20'},
+			    'offset'				: 35,
+			    
+			    'onLoad'                : function(element, tooltip) {
+			                                $(element).animate({'opacity': 1}, '350');
+
+			                            },
+			    'onHide'                : function(element, tooltip) {
+			                                $(element).animate({'opacity': 1}, '250');
+
+			                            }
+		 	});  
+	 	});
+		</script>
+
+<!--[if lte IE 9]> <body class="ie"> <![endif]-->
+<!--[if !(IE)]><!--> 
+<body> 
+<!--<![endif]-->
+	<div class="main-bg"><!-- the div that holds the main background -->
+
+<!--========================================================================================================================
+    ========================================================================================================================
+	=======================================================THE HEADER ======================================================
+	======================================================================================================================== -->
+		<header> <!-- the header -->
+
+			<!-- THE LOGO -->
+			<a class="logo">氧气&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		佳佳 <span>我们结婚啦</span></a><!-- /.logo -->
+			
+			<!-- THE NAVIGATION -->
+			<nav>
+				
+				<!-- LEFT HAND SIDE NAVIGATION -->
+				<ul class="fl-left mainnav"> <!-- the left menu -->
+					<li><a>&nbsp;</a></li>
+					<li><a>&nbsp;</a></li>
+					<li><a>&nbsp;</a></li>
+					<li><a>We</a>
+					</li>
+					<li><a >Are</a>
+					</li>
+					<li><a >Going</a></li>
+					<li><a >Married</a></li>
+				</ul> <!-- END OF the left menu -->
+
+				<!-- RIGHT HAND SIDE NAVIGATION -->
+				<ul class="fl-right mainnav"><!-- the right menu -->
+					<li><a>我</a></li>
+					<li><a>们</a></li>
+					<li><a>结</a></li>
+					<li><a>婚</a></li>
+					<li><a>啦</a></li>
+				</ul><!-- END OF the right menu -->
+			
+			</nav> <!-- END OF the navigation -->
+
+			<div class="clear">　</div>
+		
+		</header><!-- END OF the header -->
+
+<!--========================================================================================================================
+    ========================================================================================================================
+	=====================================================THE WELCOME AREA ==================================================
+	======================================================================================================================== -->
+
+		<div class="welcome-area">
+
+			<!-- THE LEFT PART OF THE WELCOME AREA -->
+			<section class="fl-left">
+
+				<!-- BIG ROUND CIRCLE CONTAINING THE DATE -->
+				<div class="thedate">
+					<p class="day">6<!-- /.the day --><sup>th</sup> <!-- /.the day's suffix --></p><!-- /.day -->
+					<p class="month">October</p><!-- /.month -->
+					<p class="time">嵊州11:08AM|宁波17:08PM</p><!-- /.time -->
+				</div><!-- thedate -->
+
+				<!-- PRETTY BUTTON WITH PINK HEART IN ITS LEFT -->
+				<a class="meetus" >
+					<span class="heart">Come<br /> And</span> <!-- button's heart small text -->
+					<span class="buttontext">Meet The Couple </span> <!-- button large text -->
+					<span class="buttonsubtitle">O2 and ++&#39;s Story</span> <!-- button small text -->
+				</a><!-- /.meetus -->
+
+			</section><!-- /.fl-left -->
+
+			<!-- THE RIGHT PART OF THE WELCOME AREA -->
+			<section class="fl-right">
+
+				<!-- THE SLIDER -->
+				<div class="slider-inner-bg">
+
+					<ul id="slider1"><!-- /.begin creating the slides -->
+
+					  	<li><!-- /. beginning of slide no 2 -->
+					  		<img src="images/wedding-page/1.jpg" width="415" alt="just another slide" class="slider1-img" />
+					  	</li><!-- /. end of slide no 2 -->
+
+					  	<li><!-- /. beginning of slide no 2 -->
+					  		<img src="images/wedding-page/1.jpg" width="415" alt="just another slide" class="slider1-img" />
+					  	</li><!-- /. end of slide no 2 -->
+
+
+					</ul><!-- /.end creating the slides -->
+				</div><!-- /.slider-inner-bg -->
+				
+			</section><!-- /.fl-right -->
+
+		</div><!-- /.welcome-area -->
+
+<!--========================================================================================================================
+    ========================================================================================================================
+	=====================================================THE CONTENT AREA ==================================================
+	======================================================================================================================== -->
+
+		<div class="clear">　</div>
+
+		<!-- THE MAIN CONTENT OF THE HOMEPAGE -->
+
+		<div class="content-wrapper">
+			<div class="content-top">　</div>
+			<div class="content">
+
+				<!-- THE LEFT CONTENT - 'ABOUT US' -->
+				<section class="homecontent-left">
+					<h2>11:08 AM 嵊州</h2>
+					<img src="images/wedding-page/nanshan.jpg" alt="about us" style="width:250px;height:250px"/>
+					<p>浙江省嵊州市 南山度假酒店</p>
+					<p>北纬N29°57′0.02″ 东经E120°40′48.81″海拔：21.38米 </p>
+					
+				</section><!-- /.homecontent-left -->
+
+				<!-- THE CENTER CONTENT 'OUR WEDDING DAY IS SET' -->
+				<section class="homecontent-center">
+					<h2>17:08 AM 宁波</h2>
+					<p>宁波市北仑区小港街道新政村社区活动中心</p>
+					<p>北纬：N29°53′41.66″ 东经：E121°39′59.06″ 海拔：6.10米</p>
+					<iframe width="455" height="380" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;source=s_q&amp;hl=zh-CN&amp;geocode=&amp;q=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;aq=&amp;sll=29.89966,121.841834&amp;sspn=0.10402,0.181789&amp;brcurrent=3,0x345298dee67132b1:0x387c13b858695982,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;ie=UTF8&amp;hq=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;ll=29.893732,121.670776&amp;spn=0.019347,0.032015&amp;t=m&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?f=q&amp;source=embed&amp;hl=zh-CN&amp;geocode=&amp;q=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;aq=&amp;sll=29.89966,121.841834&amp;sspn=0.10402,0.181789&amp;brcurrent=3,0x345298dee67132b1:0x387c13b858695982,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;ie=UTF8&amp;hq=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;ll=29.893732,121.670776&amp;spn=0.019347,0.032015&amp;t=m" style="color:#0000FF;text-align:left">查看大图</a></small>
+				</section><!-- /.homecontent-center -->
+
+				
+
+				<div class="clear">　</div>
+
+				<div class="content">
+					<h2>推荐杭州自驾路线：169 公里，2 小时 3 分钟</h2>
+					<p>请尽量拼车，结对自驾前往。</p>
+					<p>导航设置关键字：宁波市北仑区新政村  或者 宁波市北仑区新政村村委</p>
+					<p>关键路径：萧山机场高速路口 =》G92杭州湾高速 =》G1501宁波绕城高速=》小港出口</p>
+					<p>也可以走世纪大道路线，具体以导航为主</p>
+					<iframe width="625" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=d&amp;source=s_d&amp;saddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E6%9D%AD%E5%B7%9E%E5%B8%82%E6%BB%A8%E6%B1%9F%E5%8C%BA%E7%BD%91%E5%95%86%E8%B7%AF%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4&amp;daddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;hl=zh-CN&amp;geocode=FQiqzAEdAfspByE6l8VyXdhufSldHMqm74JMNDE6l8VyXdhufQ%3BFWQkyAEdeIxAByGz7ORB9HRwkCnPm5BetJ1SNDGz7ORB9HRwkA&amp;aq=0&amp;oq=%E6%9D%AD%E5%B7%9E%E5%B8%82%E6%BB%A8%E6%B1%9F%E5%8C%BA%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4&amp;sll=29.904056,121.684141&amp;sspn=0.050371,0.090895&amp;brcurrent=3,0x344d1148fda27c15:0x4f9d4dd2d94fdc44,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;mra=ls&amp;ie=UTF8&amp;ll=30.059272,120.941223&amp;spn=0.329505,1.498173&amp;t=m&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?f=d&amp;source=embed&amp;saddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E6%9D%AD%E5%B7%9E%E5%B8%82%E6%BB%A8%E6%B1%9F%E5%8C%BA%E7%BD%91%E5%95%86%E8%B7%AF%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4&amp;daddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;hl=zh-CN&amp;geocode=FQiqzAEdAfspByE6l8VyXdhufSldHMqm74JMNDE6l8VyXdhufQ%3BFWQkyAEdeIxAByGz7ORB9HRwkCnPm5BetJ1SNDGz7ORB9HRwkA&amp;aq=0&amp;oq=%E6%9D%AD%E5%B7%9E%E5%B8%82%E6%BB%A8%E6%B1%9F%E5%8C%BA%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4&amp;sll=29.904056,121.684141&amp;sspn=0.050371,0.090895&amp;brcurrent=3,0x344d1148fda27c15:0x4f9d4dd2d94fdc44,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;mra=ls&amp;ie=UTF8&amp;ll=30.059272,120.941223&amp;spn=0.329505,1.498173&amp;t=m" style="color:#0000FF;text-align:left">查看大图</a></small>
+				</div>
+
+				<div class="content">
+					<h2>宁波火车东站、汽车南站、机场出发</h2>
+					<div>
+					<p>还是打的吧(记得打表)，不然累死你。如果师傅不认识路尝试说关键字：梅墟再过去点，新模村对面的村</p>
+					<p>汽车或者坐飞机到达的话，也推荐打的</p>
+						<iframe width="625" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=d&amp;source=s_d&amp;saddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E6%B1%9F%E4%B8%9C%E5%8C%BA%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99&amp;daddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;hl=zh-CN&amp;geocode=FV1vxwEdIkE_ByHExEDvTx7SqCnVLJmNKH1NNDHExEDvTx7SqA%3BFWQkyAEdeIxAByGz7ORB9HRwkCnPm5BetJ1SNDGz7ORB9HRwkA&amp;aq=1&amp;oq=%E5%AE%81%E6%B3%A2%E7%81%AB%E8%BD%A6%E4%B8%9C&amp;sll=29.87551,121.629438&amp;sspn=0.050385,0.090895&amp;brcurrent=3,0x344d6328d60bdfdf:0x18e2850ff1880566,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;dirflg=r&amp;ttype=now&amp;noexp=0&amp;noal=0&amp;sort=def&amp;mra=ls&amp;ie=UTF8&amp;ll=29.875481,121.629467&amp;spn=0.048928,0.087115&amp;t=m&amp;start=0&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?f=d&amp;source=embed&amp;saddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E6%B1%9F%E4%B8%9C%E5%8C%BA%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99&amp;daddr=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%AE%81%E6%B3%A2%E5%B8%82%E5%8C%97%E4%BB%91%E5%8C%BA%E6%96%B0%E6%94%BF%E6%9D%91%E6%9D%91%E6%B0%91%E5%A7%94%E5%91%98%E4%BC%9A&amp;hl=zh-CN&amp;geocode=FV1vxwEdIkE_ByHExEDvTx7SqCnVLJmNKH1NNDHExEDvTx7SqA%3BFWQkyAEdeIxAByGz7ORB9HRwkCnPm5BetJ1SNDGz7ORB9HRwkA&amp;aq=1&amp;oq=%E5%AE%81%E6%B3%A2%E7%81%AB%E8%BD%A6%E4%B8%9C&amp;sll=29.87551,121.629438&amp;sspn=0.050385,0.090895&amp;brcurrent=3,0x344d6328d60bdfdf:0x18e2850ff1880566,0,0x344d6354630858f7:0x948723f846ccf173%3B5,0,0&amp;dirflg=r&amp;ttype=now&amp;noexp=0&amp;noal=0&amp;sort=def&amp;mra=ls&amp;ie=UTF8&amp;ll=29.875481,121.629467&amp;spn=0.048928,0.087115&amp;t=m&amp;start=0" style="color:#0000FF;text-align:left">查看大图</a></small>
+					</div>
+				</div>
+
+
+				<div class="content">
+					<h2>船等非主流交通方式以及紧急情况处理</h2>
+					<div>
+					<p>
+					   先找人搭讪，确定具体位置，后拨打15990024397寻求救援（救援时间与搭讪技巧成正比）
+					</p>
+					 <p>新郎家里电话：0574-86179477</p>
+					 <p>新郎老爸电话：13586903503</p>
+					 <p>新郎姐姐电话：15857496669</p>
+					</div>
+				</div>
+
+
+
+			</div><!-- /.content -->
+
+
+<!--========================================================================================================================
+    ========================================================================================================================
+	=====================================================THE FOOTER AREA ==================================================
+	======================================================================================================================== -->
+
+			<footer>
+
+			
+			
+			</footer><!--/. end of footer -->
+
+		</div><!-- /.content-wrapper -->
+	
+	</div><!-- /.main-bg -->
+	
+</body>
+</html>
