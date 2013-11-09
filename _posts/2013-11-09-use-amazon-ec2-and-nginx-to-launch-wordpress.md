@@ -95,7 +95,8 @@ free tier类型的实例每月可以免费使用750个小时，0.6G内存，免�
 	
 安装完成后
 
-	/etc/init.d/nginx reload
+	/etc/init.d/php5-fpm restart 
+	
 	
 ###安装并启动Nginx
 
@@ -154,7 +155,9 @@ free tier类型的实例每月可以免费使用750个小时，0.6G内存，免�
 
 再次修改 `/etc/nginx/sites-available/default`文件，
 
-将root目录改成 WORD_PRESS_PATH。
+将root目录改成 WORD_PRESS_PATH,然后重新加载nginx配置。
+
+	/etc/init.d/nginx reload
 
 其它简要步骤如下
 
