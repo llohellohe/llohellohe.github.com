@@ -1,12 +1,24 @@
-Nginx相关配置
+Nginx 可以用做负载均衡，使用
+	
+	upstream POOL_NAME{
+		server xxx1;
+		server xxx2;
+	}
+	
+也可以连接PHP\JSP	
+
+##Nginx相关配置
 
 ###指定配置文件
-
+	
+	启动
 	./nginx -c /usr/local/nginx/conf/nginx.conf
 	
 	重新加载配置文件
 	./nginx -s reload
 	
+	查看nginx的版本和编译信息
+	./nginx -V
 注意点：
 
 1.	配置文件必须是绝对路径。
