@@ -26,6 +26,8 @@ Nginx 可以用做负载均衡，使用
 
 nginx的主要配置格式为:
 
+	XXXX
+	
 	events{
 	
 	}
@@ -44,12 +46,18 @@ pid PATH
 
 ###基础配置
 1.	user USER GROUP 指定用户名和用户组
-2.	worker_processes N 指定工作经常树
-3.	error_log FILE LEVEL 指定日志目录和错误级别
+2.	worker_processes N 指定工作进程数
+3.	error_log FILE LEVEL 指定日志目录和错误级别 debug info notice warn error crit
 4.	log_format 格式名称 日志格式 ，只能配置在http level
 5.	access_log 日志路径 格式名称
+6.	env 重新定义环境变量
+7.	daemon 是否为daemon 经常
+8.	include 包含配置文件，支持通配符
+9.	servername
 
+###关闭日志
 
+	error_log /dev/null crit;
 
 
 
@@ -59,6 +67,7 @@ pid PATH
 		use epoll;
 		worker_connections N;
 	}
+MAX_CLIENTS = worker_connections * worder_process
 
 
 ###server配置
@@ -67,10 +76,16 @@ pid PATH
 	}
 
 1.	listen ip和端口
-2.	
+2.	error_page code uri
+3.	keepalive_timeout SECOND
+4.	keepalive_requests NUMBER
 
 
 ###location 指定格式或者路径 的配置
+
+	location ~ 区分大小写匹配
+	
+	location ~* 不区分大小写匹配
 
 	location / {
 		
