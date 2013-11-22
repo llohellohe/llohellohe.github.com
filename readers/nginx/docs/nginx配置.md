@@ -53,6 +53,7 @@ pid PATH
 6.	env 重新定义环境变量
 7.	daemon 是否为daemon 经常
 8.	include 包含配置文件，支持通配符
+9.	server_tokens off 关闭nginx的版本信息
 9.	servername
 
 ###关闭日志
