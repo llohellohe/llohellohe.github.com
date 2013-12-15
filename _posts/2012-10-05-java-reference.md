@@ -21,7 +21,7 @@ summary: Java Reference
 1.	T referent:被引用的对象
 2.	Reference pending
 3.	Reference next
-4.	ReferenceQueue queue
+4.	ReferenceQueue queue 是为了给程序的反馈，说明这个对象已经被GC了，以便程序做后续的处理。
 
 Reference有个ReferenceHandler，在类初始化的时候会启动这个Handler线程，不断的操作pending和next。
 
@@ -46,7 +46,7 @@ Reference有个ReferenceHandler，在类初始化的时候会启动这个Handler
 
 
 ###三.弱引用WeakReference
-弱引用，该类继承了基类Reference，没有任何个性化。弱引用可以用于实现内存敏感的缓存，因为虚拟机会自动清楚弱引用对象。
+弱引用，该类继承了基类Reference，没有任何个性化。弱引用可以用于实现内存敏感的缓存，因为虚拟机会自动清楚弱引用对象(每次full gc后就会清理，没有实验验证过)。
 
 软引用不保证对象被终结或者重新申明。意味着软引用通过get()获得时，很可能变成了null。
 
@@ -62,6 +62,11 @@ Reference有个ReferenceHandler，在类初始化的时候会启动这个Handler
             this.hash  = hash;
             this.next  = next;
         }
+        
+
+WeakHashMap则用弱引用实现了HashMap。它的key是weak reference的，但是value不是。
+
+每次WeakReference.get() 返回非null时候，是强引用的，它可以避免被get后，对象gc收集。
 
 
 ###四.虚引用PhantomReference

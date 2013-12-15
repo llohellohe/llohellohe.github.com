@@ -71,6 +71,22 @@ Java把内存分为：
 
 如果年老代满了，会触发full gc，回收年老代。
 
+#####minor gc和major gc
+minor gc 指的发生在young区的垃圾回收，
+
+major gc 则指的是full gc，hotspot的full gc会回收包含young\old\permanent 区的对象。
+
+可以通过`-XX:-ScavengeBeforeFullGC`关闭full gc时对young的回收，但是不建议。
+
+原因在于，old区的对象经常会有引用到young区，一旦关闭young区的回收，这些对象将无法被回收。
+
+`-verbose:gc`和`-XX:+PrintGCDetails`可以打印gc时的详细情况。
+
+######minor gc输出信息
+
+	[GC	    [PSYoungGen: 99952K->14688K(109312K)]	    422212K->341136K(764672K), 0.0631991 secs]	    [Times: user=0.83 sys=0.00, real=0.06 secs]
+######major gc输出信息
+	[Full GC	    [PSYoungGen: 11456K->0K(110400K)]	    [PSOldGen: 651536K->58466K(655360K)]	    662992K->58466K(765760K)	    [PSPermGen: 10191K->10191K(22528K)],	    1.1178951 secs]	    [Times: user=1.01 sys=0.00, real=1.12 secs]
 #####TALB
 为了保证线程安全，内存的分配是会加锁的，如果多个线程需要分配内存，那么锁势必会影响效率。
 
