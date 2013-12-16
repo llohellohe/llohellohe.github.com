@@ -31,7 +31,9 @@ Semaphore的内部实现用到了`Sync`。
 
 
 
-
+####参考资料
+1. [Java并发编程: 使用Semaphore限制资源并发访问的线程数](http://mouselearnjava.iteye.com/blog/1921468)
+2. [深入浅出 Java Concurrency (12): 锁机制 part 7 信号量（Semaphore）](http://www.blogjava.net/xylz/archive/2010/07/13/326021.html)
 
 
 
