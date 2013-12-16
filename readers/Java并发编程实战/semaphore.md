@@ -25,7 +25,9 @@ Semaphore的内部实现用到了`Sync`。
 5.	tryAcquire(long timeout, TimeUnit unit) 等待一定时间，以便获得一个许可
 
 #####顾客和餐馆的实例
-顾客线程通过acquire()一直阻塞，知道获得位置。
+顾客线程通过acquire()一直阻塞，直到获得位置。
+
+[源代码](https://github.com/llohellohe/cp/blob/master/src/yangqi/jcp/semaphore/RestaturantTest.java)
 
 
 
