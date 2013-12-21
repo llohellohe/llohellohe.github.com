@@ -68,5 +68,8 @@ AbstractQueuedSynchronizer拥有有Node构成的队列的head结点和tail结点
 
 ####参考资料
 1. [CAS操作](http://blog.csdn.net/aesop_wubo/article/details/7537960)
-2. [AbstractQueuedSynchronizer的介绍和原理分析](http://ifeve.com/introduce-abstractqueuedsynchronizer/#more-8074)
+2. [无锁队列的实现](http://coolshell.cn/articles/8239.html)
+2. 推荐阅读：[AbstractQueuedSynchronizer的介绍和原理分析](http://ifeve.com/introduce-abstractqueuedsynchronizer/#more-8074)
+3. 推荐阅读：[深入JVM锁机制2-Lock](http://blog.csdn.net/chen77716/article/details/6641477)
+4. 推荐阅读：[Inside AbstractQueuedSynchronizer](http://whitesock.iteye.com/blog/1336409)
 3. [JAVA LOCK代码浅析](http://www.blogjava.net/BucketLi/archive/2010/09/30/333471.html)

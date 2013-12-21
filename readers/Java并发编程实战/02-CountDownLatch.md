@@ -10,6 +10,26 @@
 
 内部采用了AQS的实现Sync。
 
+	public boolean tryReleaseShared(int releases) {
+            // Decrement count; signal when transition to zero
+            for (;;) {
+                int c = getState();
+                if (c == 0)
+                    return false;
+                int nextc = c-1;
+                if (compareAndSetState(c, nextc))
+                    return nextc == 0;
+            }
+        }
+        
+ 通过无线循环以及原子操作CAS来做资源的释放。
+ 
+ 
+ 		public int tryAcquireShared(int acquires) {
+            return getState() == 0? 1 : -1;
+        }
+tryAcquireShared用于await()方法中，await()调用tryAcquireShared方法判断当前技术是否为0，否则一直等待，直到为0.
+
 #####主要方法
 1.	countDown() 递减计数，当为0后，则唤醒所有等待的线程
 2.	await() 在计数器为0前一直等待
