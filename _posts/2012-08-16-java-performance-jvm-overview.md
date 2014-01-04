@@ -1,11 +1,11 @@
 ---
 layout: post
-category: WEB前端优化
-description: Google Pagespeed 规则，提升WEB的前端性能
-keywords: page speed ,前端性能
-title: 前端优化之 Google Pagespeed 规则
-tags: [pagespeed, web, 前端优化]
-summary: Google PageSpeed规则
+category: Java Performance 读书笔记
+description: Java Performance 的读书笔记第三章
+keywords: vmstat, java performance, performance tunning
+title:  JVM Overview
+tags:  [java, 性能, JVM]
+summary: JVM Overview
 ---
 
 
@@ -33,7 +33,7 @@ summary: Google PageSpeed规则
 
 	1.	-XX:-DisableExplicitGC 禁用显示GC
 	2.	-XX:MaxNewSize=size 新生代占整个堆内存的大小
-	3.	-XX:ErrorFile=./hs_err_pid<pid>.log JVM crash时，将错误信息打印到某个文件
+	3.	`-XX:ErrorFile=./hs_err_pid<pid>.log` JVM crash时，将错误信息打印到某个文件
 	4.	-XX:-PrintGCDetails 开启GC细节
 	5.	-XX:-TraceClassLoading class loader装载细节
 
