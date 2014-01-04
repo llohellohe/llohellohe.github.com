@@ -7,7 +7,8 @@ title: 前端优化之 Google Pagespeed 规则
 tags: [pagespeed, web, 前端优化]
 summary: Java Reference
 ---
-Google Pagespeed Rules 介绍了Google总结的一些WEB前端优化最佳实践，建议阅读它的原文[PageSpeed Rules](https://developers.google.com/speed/docs/best-practices/rules_intro)。
+Google Pagespeed Rules 介绍了Google总结的一些WEB前端优化最佳实践，建议阅读它的原文
+[PageSpeed Rules](https://developers.google.com/speed/docs/best-practices/rules_intro)。
 
 此文作为原文的读书笔记：）
 ###一.Http缓存
@@ -36,7 +37,7 @@ HTTP/1.1 提供了下面两种类型的缓存响应头：
 ###二.减少Rount-trip time
 RTT:rount trip time表示从客户端发起请求，到服务端返回响应的时间，但是不包含数据传输的时间。因此RTT和带宽没有关系。
 
-参考地址：(Minimize round-trip times)[https://developers.google.com/speed/docs/best-practices/rtt]
+参考地址：[Minimize round-trip times](https://developers.google.com/speed/docs/best-practices/rtt)
 
 一次网页请求至少包含3个RTT:
 
@@ -142,7 +143,7 @@ RTT:rount trip time表示从客户端发起请求，到服务端返回响应的�
 ###三.减少请求开销
 浏览器会尝试每次http请求都会带上对应路径的cookie信息，大部分请求是非对称的，请求的大小和响应的大小比例可以达到1：4~1：20 。
 
-TCP协议为了避免网络堵塞，对于新的连接采用了慢启动([slow start](http://blog.csdn.net/zavens/article/details/5539372))的算法，如果初次请求大小过大，会增加额外的RTT时间。
+TCP协议为了避免网络堵塞，对于新的连接采用了慢启动[slow start](http://blog.csdn.net/zavens/article/details/5539372)的算法，如果初次请求大小过大，会增加额外的RTT时间。
 
 可以通过下面两种方法减少请求的开销：
 ####（一）.最小化请求大小
