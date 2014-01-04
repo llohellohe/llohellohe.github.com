@@ -72,7 +72,7 @@ HotSpot VM使用了分代回收的机制，这个机制建立在两个观察结�
 
 通常年轻代使用的是copy方式，即ygc时，从eden和其中一个survivor的存活对象拷贝到另外个survivor区域。
 
-如果此时eden中存活的对象过大，导致另外个survivor区域放不下，那就直接放到old区，这被成为premature promotion（过早提升）。
+如果此时eden中存活的对象过大，导致另外个survivor区域放不下，那就直接放到old区，这被成为premature promotion,过早提升。
 
 如果old区还是不够，则会先出发full gc 后再出发ygc。 
 
