@@ -37,8 +37,11 @@ summary: JVM Overview
 	5.	-XX:-TraceClassLoading class loader装载细节
 
 具体非稳态参数可以参考：
+
 [中文](http://kenwublog.com/docs/java6-jvm-options-chinese-edition.htm)
+
 [英文](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
+
 [标准](http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/java.html)
 
 ####（二）.VM 的生命周期 VM Lifecycle
