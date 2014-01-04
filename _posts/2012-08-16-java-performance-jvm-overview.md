@@ -25,7 +25,7 @@ summary: JVM Overview
 
 对于开发者选项，可以通过 `+`或者`-`号来设置布尔选项。
 
-如`-XX:+AggressiveOpts`,将AggressiveOpts设为true。
+如`-XX:+AggressiveOpts`,将AggressiveOpts设为true 。
 
 简单的参数介绍：
 
