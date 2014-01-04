@@ -51,7 +51,7 @@ summary: JVM Overview
 6.	加载main class
 7.	使用CallStaticVoidMain方法执行main方法。
 8.	当main执行完毕后，使用DetachCurrentThread来介绍线程
-9.	调用DestroryJavaVM来结束JVM。先会调用java.lang.Shutdown.shutdown()，触发一些钩子和释放函数。
+9.	调用DestroryJavaVM来结束JVM。先会调用`java.lang.Shutdown.shutdown()`，触发一些钩子和释放函数。
 
 
 JAVA类加载，复习下JVM规范。
