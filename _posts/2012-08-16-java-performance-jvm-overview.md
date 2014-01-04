@@ -138,7 +138,9 @@ G1意味着可以使用不连续的区域组成年老代和年轻代，也以为
 2.	可以精确控制停顿时间
 
 ps:以上部分需要深入了解下，尤其是G1。
+
 ####参考资料
+
 	http://www.iteye.com/topic/473874
 	http://blog.csdn.net/java2000_wl/article/details/8030172
 	http://blog.csdn.net/chjttony/article/details/7883748
