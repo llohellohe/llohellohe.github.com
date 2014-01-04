@@ -5,7 +5,7 @@ description: Google Pagespeed 规则，提升WEB的前端性能
 keywords: page speed ,前端性能
 title: 前端优化之 Google Pagespeed 规则
 tags: [pagespeed, web, 前端优化]
-summary: Java Reference
+summary: Google PageSpeed规则
 ---
 Google Pagespeed Rules 介绍了Google总结的一些WEB前端优化最佳实践，建议阅读它的原文
 [PageSpeed Rules](https://developers.google.com/speed/docs/best-practices/rules_intro)。

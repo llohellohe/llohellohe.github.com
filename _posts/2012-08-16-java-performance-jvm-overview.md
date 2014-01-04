@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java Performance 读书笔记
-description: Java Performance 的读书笔记第三章
-keywords: vmstat, java performance, performance tunning
-title:  JVM Overview
-tags:  [java, 性能, JVM]
-summary: JVM Overview
+category: WEB前端优化
+description: Google Pagespeed 规则，提升WEB的前端性能
+keywords: page speed ,前端性能
+title: 前端优化之 Google Pagespeed 规则
+tags: [pagespeed, web, 前端优化]
+summary: Java Reference
 ---
 
 caonima
