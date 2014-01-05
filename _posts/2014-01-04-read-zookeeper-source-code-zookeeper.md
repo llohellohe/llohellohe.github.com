@@ -128,7 +128,7 @@ ZKWatchManager 将Watcher分成了四大类，分别用DataWatcher\ExistsWatcher
 #####a.defaultWatcher
 defaultWatcher只会相应事件类型为None，代表连接状态发生变化的通知。
 
-######b.连接重置后watcher恢复
+#####b.连接重置后watcher恢复
 默认情况下，如果连接重连，那么之前的watcher将被自动恢复。
 
 如果KeeperState的状态不为连接建立，并且zookeeper.disableAutoWatchReset设置为fasle，
