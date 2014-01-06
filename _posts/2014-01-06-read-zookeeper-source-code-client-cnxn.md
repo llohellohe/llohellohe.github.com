@@ -152,9 +152,9 @@ pingRwServer()方法直接使用Socket建立连接，并且查看相应是否为
 
 	clientCnxnSocket.doTransport(timeOut, pendingQueue, outgoingQueue, ClientCnxn.this); 
 
-需要被发送的数据，被放在LinkedList<Packet>outgoingQueue中，
+需要被发送的数据，被放在`LinkedList<Packet>outgoingQueue`中，
 
-已经发送等待相应的数据放在 LinkedList<Packet> pendingQueue 中。
+已经发送等待相应的数据放在` LinkedList<Packet> pendingQueue` 中。
 
 #####第八步.退出
 
