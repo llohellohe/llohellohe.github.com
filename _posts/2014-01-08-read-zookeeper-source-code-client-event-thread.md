@@ -102,7 +102,7 @@ Packet封装了各个需要用的数据，比如ZNode路径,callback等。
 
 上述的Response都属于`org.apache.zookeeper.proto`包的一部分，实现了接口`org.apache.jute.Record`。
 
-ZK使用jute作为底层数据传输的协议实现。
+ZK使用jute生成RPC和序列化相关的代码。zookeeper.jute定义了相关代码。
 
 #####queueEvent方法
 
@@ -145,3 +145,6 @@ SendThread的onConnect方法会调用queueEvent方法
 2.	如果已经处于kill状态中，则判断是否还在运行，如果是则加入到waitingEvents列表中，否则直接处理。
 
 ClientCnxn的finishPacket方法会调用 queuePacket方法
+
+####参考资料：
+1.[jute](http://blog.sina.com.cn/s/blog_5e9040780101nn0b.html)
