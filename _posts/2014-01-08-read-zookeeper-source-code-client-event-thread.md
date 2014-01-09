@@ -71,7 +71,8 @@ run()方法如下：
 
 WatcherSetEventPair为一个事件，对应一个Watcher的集合。
 
-   private static class WatcherSetEventPair {
+   
+    private static class WatcherSetEventPair {
         private final Set<Watcher> watchers;
         private final WatchedEvent event;
 

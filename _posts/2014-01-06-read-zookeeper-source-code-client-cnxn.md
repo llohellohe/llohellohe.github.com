@@ -27,7 +27,7 @@ ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个�
 	    
 根据传入的参数`zookeeper.disableAutoWatchReset`，决定是否将自动重置watch的开关打开。
 
-###三.构造函数
+###三.构造函数和字段属性
 	ClientCnxn(String chrootPath, HostProvider hostProvider, int sessionTimeout, ZooKeeper zooKeeper,
 	            ClientWatchManager watcher, ClientCnxnSocket clientCnxnSocket, boolean canBeReadOnly)
 	            
@@ -61,6 +61,18 @@ ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个�
         eventThread = new EventThread();
 
 设置对应的连接超时和读超时时间后，会初始化用于数据传输的SendThread，以及用于事件处理的EventThread
+
+####所有字段归类
+ClientCnxn的字段可以归类成5大类。
+
+1.	连接相关属性，如超时时间等
+2.	授权相关属性
+3.	数据发送相关属性
+4.	状态相关属性
+5.	其它属性
+
+具体划分参看类图。
+
 
 ####seenRwServerBefore
 这个boolean字段用volatile控制其可见性。
@@ -172,3 +184,29 @@ pingRwServer()方法直接使用Socket建立连接，并且查看相应是否为
 执行最后的数据发送和处理，同时关闭clientCnxnSocket。
 
 使用EventThread发送连接关闭事件，并且记录日志。
+
+####五.Packet
+
+Packet用于传播相应的header以及record。
+
+	Packet(RequestHeader requestHeader, ReplyHeader replyHeader,
+               Record request, Record response,
+               WatchRegistration watchRegistration, boolean readOnly)
+               
+构造函数包含参数：
+
+1.	请求头RequestHeader
+2.	相应头ReplyHeader
+3.	请求
+4.	响应
+5.	WatchRegistration
+6.	是否只读
+
+Packet的createBB()方法，用于将数据写入requestHeader和request序列化到NIO的ByteBuffer里面。
+
+Packet还包含客户端ZNode路径，服务端ZNode路径，AsyncCallback和Context等字段。
+
+####六.ClientCnxn相关类图
+
+![image](https://raw2.github.com/llohellohe/zookeeper/master/docs/class-diagram/ClientCnxn.png)
+可见ClientCnxn异常复杂，剩余部分将在下一篇文章中描述。

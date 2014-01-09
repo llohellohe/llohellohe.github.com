@@ -135,6 +135,25 @@ defaultWatcher只会相应事件类型为None，代表连接状态发生变化�
 
 那么在连接断开并恢复后，将重新恢复Watcher，否则将清空原有的Watcher。
 
+#####c.WatchRegistration
+抽象类WatchRegistration 用于将一个Watcher注册到一个ZNode 路径上。
+
+因此WatchRegistration有两个字段，Watcher和path。
+
+他有三个抽象方法：
+
+1.根据状态码获得对应路径的对应Watcher
+
+	abstract protected Map<String, Set<Watcher>> getWatches(int rc);
+
+2.根据状态码注册watcher
+
+	 public void register(int rc) 
+	 
+3.判断状态吗判断是否需要增加watch
+
+     shouldAddWatch(int rc)
+
 ####九.ClientCnxnSocket
 ClientCnxnSocket被ClientCnxn用于客户端和服务端的socket通信。
 
