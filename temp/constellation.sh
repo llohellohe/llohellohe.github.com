@@ -7,8 +7,6 @@ RET=""
 
 function gen {
 
-	HIT="巨蟹座"
-
 	total=12
         
 	while  [ $total -gt 0 ]

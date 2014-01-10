@@ -10,7 +10,7 @@ summary: 星座排名是这样生成的
 
 其实所有的、坑爹的星座排名都是这样生成的，运行如下代码
 
-	curl -o go.sh http://llohellohe.github.com/temp/constellation.sh &&  sh go.sh
+	curl -o go.sh https://raw2.github.com/llohellohe/llohellohe.github.com/master/temp/constellation.sh &&  sh go.sh
 	
 可以看到类似的效果：
 ![rank result](http://llohellohe.github.com/imgs/top10rank.png)
