@@ -26,8 +26,6 @@ summary: 星座排名是这样生成的
 	
 	function gen {
 	
-	        HIT="巨蟹座"
-	
 	        total=12
 	        
 	        while  [ $total -gt 0 ]
