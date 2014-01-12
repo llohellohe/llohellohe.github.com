@@ -18,4 +18,4 @@ CyclicBarrier有两个构造函数
 	
 这个Runnable将在所有线程都到达后，其它线程被唤醒前执行。
 
-使用CyclicBarrier使20个Graunt兽族步兵到达后，才发动攻击的例子。
+使用CyclicBarrier使20个Graunt兽族步兵到达后，才发动攻击的[例子](https://github.com/llohellohe/cp/blob/master/src/yangqi/jcp/barrier/Graunt.java)。
