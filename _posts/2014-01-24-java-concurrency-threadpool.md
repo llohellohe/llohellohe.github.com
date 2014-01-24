@@ -51,7 +51,7 @@ ThreadPoolExecutor的构造函数包含几个参数：
 2.	int maxiumPollSize 线程池最大大小，可活动的线程数量上限。
 3.	long keepAliveTime 线程的最大存活时间
 4.	TimeUnit timeUnit时间单位
-5.	BlockingQueue<Runnable>workqueue 等待任务的工作队列
+5.	`BlockingQueue<Runnable>workqueue` 等待任务的工作队列
 6.	ThreadFactory threadFactory 线程工厂
 7.	RejectedExecutionHandler handler 拒绝执行的策略
 
@@ -116,8 +116,8 @@ Future代表一个任务的生命周期，可以用相应的方法来判断任�
 ####提交任务
 ExecutorService的任务提交submit()方法可以将一个Callable或者Runnable提交，然后返回一个Future。
 
-1.	Future<?> submit(Runnable task);
-2.	<T> Future<T> submit(Callable<T> task);
+		1.	Future<?> submit(Runnable task);
+		2.	<T> Future<T> submit(Callable<T> task);
 
 代码实例:[ExecutorType.java](https://github.com/llohellohe/cp/blob/master/src/yangqi/jcp/executor/ExecutorType.java)
 
