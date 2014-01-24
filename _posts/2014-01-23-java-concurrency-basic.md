@@ -1,4 +1,3 @@
-
 ---
 layout: post
 category: Java Concurrency
@@ -46,7 +45,7 @@ ThreadLocal可以用于保证线程封闭。
 
 开发人员不该滥用ThreadLocal，避免引入隐式的耦合。
 
-ThreadLocal[详细分析](https://github.com/llohellohe/llohellohe.github.com/blob/master/readers/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/05-ThreadLocal.md)。
+ThreadLocal[详细分析](http://www.hiyangqi.com/java%20concurrency/java-concurrency-ThreadLocal.html)。
 
 ###基础构建模块
 ####同步容器类
@@ -81,11 +80,11 @@ Deque可以在队首和队尾插入和移除。
 ####同步工具类
 除了BlockingQueue,同步工具类还有信号量semaphore、闭锁latch、栅栏barrier。
 
-[CountDownLatch](https://github.com/llohellohe/llohellohe.github.com/blob/master/readers/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/02-CountDownLatch.md)是一种闭锁latch，countDown方法用于将计数递减，await方法等待直到计数器为0。
+[CountDownLatch](http://www.hiyangqi.com/java%20concurrency/java-concurrency-CountDownLatch.html)是一种闭锁latch，countDown方法用于将计数递减，await方法等待直到计数器为0。
 
-[Semaphore](https://github.com/llohellohe/llohellohe.github.com/blob/master/readers/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/01-Semaphore.md)则维护了一组资源的许可，当获取资源时，首先要通过acquire获得许可，然后通过release返回许可。
+[Semaphore](http://www.hiyangqi.com/java%20concurrency/java-concurrency-semaphore.html)则维护了一组资源的许可，当获取资源时，首先要通过acquire获得许可，然后通过release返回许可。
 
-CyclicBarrier类似CountDownLatch，CountDownLatch用于等待的事件，而CyclicBarrier则用来等待线程。
+[CyclicBarrier](http://www.hiyangqi.com/java%20concurrency/java-concurrency-CyclicBarrier.html)类似CountDownLatch，CountDownLatch用于等待的事件，而CyclicBarrier则用来等待线程。
 
 CountDownLatch是一个线程等待多个线程，而CyclicBarrier则是多个线程同时等待。
 
