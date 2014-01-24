@@ -3,7 +3,7 @@ layout: post
 category: Java Concurrency
 description: 介绍多线程编程中的一个基本工具CyclicBarrier 。
 keywords: java concurrency, ThreadLocal的用法，ThreadLocal的源代码分析和ThreadLocal的主要方法以及原理分析
-title: ThreadLocal原理和介绍
+title: ThreadLocal原理
 tags: [java concurrency]
 summary: Java 多线程基本工具之ThreadLocal的用法和原理分析
 ---
