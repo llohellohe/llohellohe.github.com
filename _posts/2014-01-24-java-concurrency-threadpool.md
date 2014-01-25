@@ -3,7 +3,7 @@ layout: post
 category: Java Concurrency
 description: 介绍多线程编程中的一个基本工具线程池ThreadPool的内部原理解析，包含ExecutorService原理和Executor原理。
 keywords: java concurrency, java的多线程处理，ThreadPool的用法，ThreadPool的源代码分析和ThreadPool的主要方法以及原理分析，Executors的用法，Executors的源代码分析和Executors的主要方法以及原理分析，
-title: ThreadPool的原理
+title: Java线程池Executor的分析
 tags: [java concurrency]
 summary: Java 多线程基本工具之ThreadPool的用法和原理分析
 ---
