@@ -1,3 +1,13 @@
+---
+layout: post
+category: Java Concurrency
+description: 介绍多线程编程中的一个基本工具线程池显式锁ReentrantLock和显式条件队列Condition的内部原理解析，包含显式锁ReentrantLock和显式条件队列Condition的原理。
+keywords: java concurrency, java的多线程处理，ReentrantLock的用法，ReentrantLock的源代码分析和ReentrantLock的主要方法以及原理分析，Condition的用法，Condition的源代码分析和Condition的主要方法以及原理分析，
+title: 显式锁ReentrantLock和显式条件队列Condition
+tags: [java concurrency]
+summary: Java 多线程基本工具之显式锁和显式条件队列的分析
+---
+
 ###一.显式锁和内置锁
 在Java 5.0之前，协调共享对象的访问时，只有synchronized和volatile。
 
