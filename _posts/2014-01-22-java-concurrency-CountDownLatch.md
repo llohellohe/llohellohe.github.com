@@ -34,7 +34,7 @@ summary: Java 多线程基本工具之CountDownLatch的用法和原理分析
             }
         }
         
- 通过无线循环以及原子操作CAS来做资源的释放。
+ 通过无限循环以及原子操作CAS来做资源的释放。
  
  
  		public int tryAcquireShared(int acquires) {
