@@ -43,10 +43,10 @@ summary: Java 多线程基本工具之CountDownLatch的用法和原理分析
 tryAcquireShared用于await()方法中，await()调用tryAcquireShared方法判断当前技术是否为0，否则一直等待，直到为0.
 
 #####主要方法
-1.	countDown() 递减计数，当为0后，则唤醒所有等待的线程
-2.	await() 在计数器为0前一直等待
+1.	countDown() 递减计数。内部调用AQS的releasedShared方法递减计数。
+2.	await() 在计数器为0前一直等待，为0后唤醒所有等待的线程。内部调用AQS的acquireShareInterruptibly方法，内部一直循环，直到计数变为0。
 3.	await(long timeout, TimeUnit unit) 在计数器为0前一直等待，除非过了指定的时间
-4.	getCount() 返回当前计数
+4.	getCount() 返回当前计数，内部调用AQS的getState()方法
 
 
 #####源代码

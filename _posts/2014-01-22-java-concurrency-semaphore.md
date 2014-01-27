@@ -48,10 +48,10 @@ NonfairSync同样实现了Sync方法，只不过它的`tryAcquireShared`调用�
 
 #####主要方法
 
-1.	acquire() 在获得许可前一直阻塞
+1.	acquire() 在获得许可前一直阻塞。内部调用AQS的acquireSharedInterruptibly方法，直到获得许可。
 2.	acquire(int n)获得n个许可
 2.	getQueueLength() 正在等待线程的估计数目
-3.	release()释放一个许可
+3.	release()释放一个许可,内部调用AQS的releaseShared方法释放许可。
 4.	tryAcquire() 仅在当前有可用许可时返回
 5.	tryAcquire(long timeout, TimeUnit unit) 等待一定时间，以便获得一个许可
 
