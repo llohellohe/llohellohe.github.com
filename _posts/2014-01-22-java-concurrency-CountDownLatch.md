@@ -20,6 +20,8 @@ summary: Java 多线程基本工具之CountDownLatch的用法和原理分析
 
 内部采用了[AQS](http://www.hiyangqi.com/java%20concurrency/java-concurrency-AQS.html)的实现Sync。
 
+使用AQS的state代表count的数量，每次countDown后此数量减1。
+
 	public boolean tryReleaseShared(int releases) {
             // Decrement count; signal when transition to zero
             for (;;) {

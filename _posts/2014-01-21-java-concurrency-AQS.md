@@ -7,8 +7,28 @@ title: Java 多线程基本工具的原理AQS
 tags: [java concurrency]
 summary: Java 多线程基本工具的内部实现AQS的原理
 ---
+###一.AQS简介
+AQS作为同步器的基础框架，可以用来实现锁的语义或者其它同步工具。
 
-####CAS
+锁的API是面向使用者的，定义了锁的获取和释放，而同步器的API则用于内部实现资源的竞争和等待。
+
+AQS可以被定义成共享模式或者排它模式，如果定义为排它模式，那么其它线程对其的获取会被阻止，而共享模式的话则可以获取成功。
+
+AQS定义了获取锁和释放锁的基本方法，子类只需要实现相关方法即可。
+
+1.	boolean tryAcquire(int arg)
+2.	boolean tryRelease(int arg) 
+3.	int tryAcquireShared(int arg)
+4.	boolean tryReleaseShared(int arg)
+5.	boolean isHeldExclusively()
+
+###二.辅助类和CAS
+####(一).LockSupport
+LockSupport可以阻塞线程park或者解除线程的阻塞unpark，
+
+park是“盲目等待”的优化，可以避免因为自旋导致的额外开销。
+
+####(二).CAS
 compare and swap 或者 compare and set。
 
 	intcompare_and_swap (int* reg, int oldval, int newval)  
@@ -29,51 +49,172 @@ Java中的锁包含三个主要要素：
 第三点则用于存储未获得锁的线程，比如AQS中通过双向队列来存储。
 
 
-####AbstractOwnableSynchronizer
-AbstractOwnableSynchronizer是一个线程独占，即排它的同步器，
+####(三).AbstractOwnableSynchronizer
+AbstractOwnableSynchronizer是一个线程独占-即排它的同步器，它为其它锁或者同步器的实现提供基础。
 
-它只有一个变量：exclusiveOwnerThread ，用于保存当前的拥有线程。
+它只有一个变量：exclusiveOwnerThread ，用于在排它模式下，保存当前的拥有者线程。
 
-已经想对应的set和get方法。
+以及相对应的set和get方法。
 
-####AbstractQueuedSynchronizer
-AbstractQueuedSynchronizer继承了AbstractOwnableSynchronizer，以当个int值来表示状态。
+###三.AbstractQueuedSynchronizer 的源代码分析
+AbstractQueuedSynchronizer继承了AbstractOwnableSynchronizer。
 
-它可以同时提供独占模式和共享模式的同步器。
+AQS有如下几部分组成：
 
-它为其它基于FIFO的同步器提供一个基础框架。
+1.	volatile 的int state
+2.	volatile 的Node作为队列头结点 head
+3.	volatile 的Node作为队列尾结点 tail
 
-具体同步器只需要实现下面方法即可：
+它使用volatile的 int值来表示状态，同时使用FIFO的同步等待队列来维护等待的线程。
 
-1.	tryAcquire(int)		排它的获取状态
-2.	tryRelease(int)    释放状态
-3.	tryAcquireShared(int)	 共享的获取状态
-4.	tryReleaseShared(int)   释放状态
-5.	isHeldExclusively()  是否是独占模式
+同步等待队列称为sync队列。
 
 
-其它内部方法：
 
-1.	Node enq(final Node node) 插入一个结点到队列中，如果队列不存在则初始化。
-2.	Node addWaiter(Node mode) 插入代表当前线程的结点状态
+####等待队列和相关操作
+等待队列的相关操作有：
+
+1.	compareAndSetHead CAS的设置队列头部结点
+2.	compareAndSetTail CAS的设置队列尾部结点
 
 
-#####Node
-Node构成了FIFO队列的节点，每个Node对应每个线程对同步器的访问。
+
+#####(一).结点：Node
+Node构成了等待队列sync和Condition队列的基础结点，每个Node对应每个线程对同步器的访问。
 
 Node包含五个成员变量：
 
-1.	int waitStatus 节点的等待状态
-2.	Node next
-3.	Node prev
-4.	Node nextWaiter condition队列中的后继节点
+1.	int waitStatus 结点的状态
+2.	Node next 上一个结点
+3.	Node prev 下一个结点
+4.	Node nextWaiter condition队列中的后继结点
 5.	Thread thread 入队列时的当前线程
-
-AbstractQueuedSynchronizer拥有有Node构成的队列的head结点和tail结点变量。
 
 对锁的请求，请求会形成结点，放到队列的尾部。
 
 锁的释放则从尾部开始。
+
+waitStatus有如下几种可能
+
+1.	CANCELLED，值为1，表示当前的线程被取消；
+2.	SIGNAL，值为-1，表示当前节点的后继节点包含的线程需要运行，也就是unpark；
+3.	CONDITION，值为-2，表示当前节点在等待condition，也就是在condition队列中；
+4.	PROPAGATE，值为-3，表示当前场景下后续的acquireShared能够得以执行；
+5.	值为0，表示当前节点在sync队列中，等待着获取锁。
+
+
+#####(二).入队列操作enq
+
+	 private Node enq(final Node node) {
+	        for (;;) {
+	            Node t = tail;
+	            if (t == null) { // Must initialize
+	                if (compareAndSetHead(new Node()))
+	                    tail = head;
+	            } else {
+	                node.prev = t;
+	                if (compareAndSetTail(t, node)) {
+	                    t.next = node;
+	                    return t;
+	                }
+	            }
+	        }
+	    }
+
+入队列操作时，通过一个永久的循环。
+
+由于tail是volatile的，因此总能获得最新的值。
+
+如果tail为空，证明队列还是空得，那么通过CAS的形式设置head。
+
+否则，以CAS的形式设置tail。
+
+#####(三).增加等待结点
+
+参数mode表示结点为共享模式还是排它模式。
+
+	 private Node addWaiter(Node mode) {
+	        Node node = new Node(Thread.currentThread(), mode);
+	        // Try the fast path of enq; backup to full enq on failure
+	        Node pred = tail;
+	        if (pred != null) {
+	            node.prev = pred;
+	            if (compareAndSetTail(pred, node)) {
+	                pred.next = node;
+	                return node;
+	            }
+	        }
+	        enq(node);
+	        return node;
+	    }
+
+
+#####(四).唤醒后继结点
+
+unparkSuccessor方法用于唤醒后继结点，结点的状态为0时，代表处于等待获取锁的状态。
+
+		private void unparkSuccessor(Node node) {
+	        
+	        int ws = node.waitStatus;
+	        // 如果状态小于0，则以CAS的形式将当前结点的状态置为0。
+	        if (ws < 0)
+	        	compareAndSetWaitStatus(node, ws, 0);
+	
+	        Node s = node.next;
+	        //获得当前结点的后继结点，如果后继结点为null后者状态为已取消
+	        if (s == null || s.waitStatus > 0) {
+	            s = null;
+	            for (Node t = tail; t != null && t != node; t = t.prev)
+	                if (t.waitStatus <= 0)
+	                    s = t;
+	        }
+	        //唤醒结点
+	        if (s != null)
+	            LockSupport.unpark(s.thread);
+	    }
+	    
+	    
+###四.状态相关操作
+####acquire方法
+acquire方法为定义在AQS中final方法。
+
+1.	先尝试通过tryAcquire获得资源。
+2.	如果获取失败则将已排它的形式将结点增加到sync队列中。
+3.	尝试从acquireQueue队列中获得
+
+	public final void acquire(int arg) {
+	        if (!tryAcquire(arg) &&
+	            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+	            selfInterrupt();
+	    }
+	    
+####acquireQueued方法
+	
+	final boolean acquireQueued(final Node node, int arg) {
+        boolean failed = true;
+        try {
+            boolean interrupted = false;
+            for (;;) {
+                final Node p = node.predecessor();
+                if (p == head && tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = null; // help GC
+                    failed = false;
+                    return interrupted;
+                }
+                if (shouldParkAfterFailedAcquire(p, node) &&
+                    parkAndCheckInterrupt())
+                    interrupted = true;
+            }
+        } finally {
+            if (failed)
+                cancelAcquire(node);
+        }
+    }	    
+	   
+
+
+
 
 
 ####参考资料

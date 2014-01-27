@@ -20,7 +20,9 @@ summary: Java 多线程基本工具之Semaphore的用法和原理分析
 2.	public Semaphore(int permits, boolean fair) 资源的数量，以及是否采用公平策略
 
 Semaphore的内部实现用到了`Sync`。
-`Sync`是基于[AQS-AbstractQueuedSynchronizer](http://www.hiyangqi.com/java%20concurrency/java-concurrency-AQS.html)的一个实现，
+`Sync`是基于[AQS-AbstractQueuedSynchronizer](http://www.hiyangqi.com/java%20concurrency/java-concurrency-AQS.html)的一个实现。
+
+Semaphore的许可数量作为AQS的状态值。
 
 它实现了如下方法：
 
