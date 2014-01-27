@@ -22,6 +22,14 @@ AQS定义了获取锁和释放锁的基本方法，子类只需要实现相关�
 4.	boolean tryReleaseShared(int arg)
 5.	boolean isHeldExclusively()
 
+
+简单地说，AQS内部维护了一个状态变量，以及等待线程的队列。
+
+基于此，可以实现大量的同步工具，包含锁。
+
+典型的同步工具如[CountDownLatch](http://www.hiyangqi.com/java%20concurrency/java-concurrency-CountDownLatch.html),[Semaphore](http://www.hiyangqi.com/java%20concurrency/java-concurrency-semaphore.html),[CyclicBarrier](http://www.hiyangqi.com/java%20concurrency/java-concurrency-CyclicBarrier.html)和[ReentrantLock](http://www.hiyangqi.com/java%20concurrency/java-concurrency-lock-and-condition.html)等。
+
+
 ###二.辅助类和CAS
 ####(一).LockSupport
 LockSupport可以阻塞线程park或者解除线程的阻塞unpark，
