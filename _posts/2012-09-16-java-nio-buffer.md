@@ -96,6 +96,28 @@ CharBuffer中只定义了抽象的put()和get()系列方法，具体的实现是
 
 为了效率，读和写均具有批量处理的方法。
 
+Buffer的写入一般分为以下四个步骤：
+
+1.	写入数据到Buffer
+2.	调用flip方法，从写模式切换到读模式（将position置为开始）
+3.	从Buffer中读取数据
+4.	调用clear或者compact方法
+
+#####flip 读写模式切换
+flip方法用于读写模式的切换。
+
+写完数据后，flip方法将limit置为position,position置为0。
+
+
+#####clear 清理
+clear方法将Buffer中的position置为0，limit置为capacity。
+
+clear表示将Buffer清空，如果Buffer中有未读完的数据，那么将被遗忘。
+
+#####compact 合并
+如果有没有读完的数据，compact将把数据整块放置到Buffer的开始出，然后position置为下一个空的位置。
+
+
 #####复制
 复制时，将创建一个新的HeapCharBuffer实例，但是char[]数组是直接传递的，因此对于元素的任何修改，都将影响到其它heap buffer。
 

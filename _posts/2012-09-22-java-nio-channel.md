@@ -29,8 +29,12 @@ read()\write()方法都以ByteBuffer作为参数，返回读取、写入的字�
 
 ScatteringByteChannel 接口继承了ReadableByteChannel，可以批量输入到ByteBuffer数组中。
 
+Scattering Read 用于将通道中的数据读入到多个Buffer中，比如分开处理消息头和消息体。
+
 
 GatheringByteChannel 接口继承了WritableByteChannel，可以批量输出到ByteBuffer数组中。
+
+Gathering Write用于将多个Buffer写入到同个Channel中。
 
 ###二.文件通道
 
