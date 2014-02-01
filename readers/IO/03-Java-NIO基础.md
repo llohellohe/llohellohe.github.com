@@ -46,5 +46,13 @@ NIO具有以下重要的数据类型:通道、缓冲区和选择器。
 ![image](http://ifeve.com/wp-content/uploads/2013/06/overview-selectors.png)
 
 
+选择器必须在非阻塞的通道上使用，因此必须将Channel配置成非阻塞模式。
+
+SocketChannel就亦就可以配置成非阻塞模式，而FileChannel则不支持非阻塞。
+
+通过Channel的reigister方法，可以将selector和关心的时间注册上去。
+
+如果关心多个事件，则可以用 “|” 组合多个事件。 
+
 ###参考资料
 1.	[并发编程网-JavaNIO](http://ifeve.com/overview/)
