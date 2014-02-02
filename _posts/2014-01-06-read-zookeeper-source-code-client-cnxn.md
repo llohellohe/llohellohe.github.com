@@ -9,7 +9,7 @@ summary: ZooKeeper源代码解读之ClientCnxn
 ---
 
 ###一.ClientCnxn作用
-ClientCnxn用于客户端和服务端的socket 进行I/O 通信。
+ClientCnxn用于客户端和服务端的socket 进行I/O 通信,默认的使用[ClientCnxnSocketNIO](http://)实现进行通信。
 
 并且它维护了一个服务器的地址列表。在需要的时候，可以进行透明的自动重连。
 
@@ -187,7 +187,7 @@ pingRwServer()方法直接使用Socket建立连接，并且查看相应是否为
 使用EventThread发送连接关闭事件，并且记录日志。
 
 ####ClientCnxn时序图
-![image](http://)
+![image](https://raw2.github.com/llohellohe/llohellohe.github.com/master/readers/ZooKeeper/ClientCnxnSocketNIO.png)
 
 ####五.Packet
 
