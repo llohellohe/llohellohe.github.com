@@ -7,6 +7,7 @@ title: ZooKeeper源代码解读之ClientCnxn
 tags: [分布式,ZooKeeper,ZooKeeper源代码]
 summary: ZooKeeper源代码解读之ClientCnxn
 ---
+Tips:[ZooKeeper学习目录](https://github.com/llohellohe/zookeeper/blob/master/README.md)
 
 ###一.ClientCnxn作用
 ClientCnxn用于客户端和服务端的socket 进行I/O 通信,默认的使用[ClientCnxnSocketNIO](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-nio-socket.html)实现进行通信。

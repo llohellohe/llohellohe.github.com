@@ -7,6 +7,7 @@ title: ZooKeeper源代码解读之EventThread
 tags: [分布式,ZooKeeper,ZooKeeper源代码]
 summary: ZooKeeper源代码解读之EventThread
 ---
+Tips:[ZooKeeper学习目录](https://github.com/llohellohe/zookeeper/blob/master/README.md)
 
 本文承接自上一篇[ClientCnxn](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-client-cnxn.html)
 

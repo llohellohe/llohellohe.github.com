@@ -7,6 +7,7 @@ title: ZooKeeper源代码解读之ClientCnxnSocketNIO
 tags: [分布式,ZooKeeper,ZooKeeper源代码]
 summary: ZooKeeper源代码解读之ClientCnxnSocketNIO
 ---
+Tips:[ZooKeeper学习目录](https://github.com/llohellohe/zookeeper/blob/master/README.md)
 
 ###一.ClientCnxnSocket
 抽象类ClientCnxnSocket负责ZooKeeper客户端和服务端的底层通信，负责协议的解析（通过apache jute），默认采用了socket实现。
