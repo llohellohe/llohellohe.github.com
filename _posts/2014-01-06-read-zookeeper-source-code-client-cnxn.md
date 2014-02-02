@@ -9,9 +9,9 @@ summary: ZooKeeper源代码解读之ClientCnxn
 ---
 
 ###一.ClientCnxn作用
-ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个服务器的地址列表。
+ClientCnxn用于客户端和服务端的socket 进行I/O 通信。
 
-在需要的时候，可以进行透明的自动重连。
+并且它维护了一个服务器的地址列表。在需要的时候，可以进行透明的自动重连。
 
 ###二.类初始化
 	static {
@@ -39,7 +39,7 @@ ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个�
 	            long sessionId, byte[] sessionPasswd, boolean canBeReadOnly)
 	            
 	            
-####参数	            
+####(一).参数	            
 1.	chrootPath 传入的 chroot路径
 2.	hostProvider 用于提供服务器连接地址
 3.	sessionTimeout 连接的超时时间
@@ -50,7 +50,7 @@ ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个�
 8.	sessionPasswd 默认为大小为16的字节数组
 9.	canBeReadOnly 是否为只读模式
 
-####初始化过程
+####(二).初始化过程
         //连接超时时间为sessionTimeout除以总共的连接服务器数
  		connectTimeout = sessionTimeout / hostProvider.size();
  		//读超时时间为 sessionTimeout的0.66667倍
@@ -60,9 +60,9 @@ ClientCnxn用于客户端和服务端的socket IO 通信,并且维护了一个�
         sendThread = new SendThread(clientCnxnSocket);
         eventThread = new EventThread();
 
-设置对应的连接超时和读超时时间后，会初始化用于数据传输的SendThread，以及用于事件处理的EventThread
+设置对应的连接超时和读超时时间后，初始化用于数据传输的SendThread，以及用于事件处理的EventThread
 
-####所有字段归类
+####(三).所有字段归类
 ClientCnxn的字段可以归类成5大类。
 
 1.	连接相关属性，如超时时间等
@@ -74,18 +74,16 @@ ClientCnxn的字段可以归类成5大类。
 具体划分参看类图。
 
 
-####seenRwServerBefore
+####(四).seenRwServerBefore
 这个boolean字段用volatile控制其可见性。
 
 在ZooKeeper构造函数的初始化过程中，如果提供的参数中包含了sessionId，那么这个值将被置为true。
 
-作用目前还不了解。
-
-####SendThread的启动方法
+####启动SendThread和EventThread
 ZooKeeper构造函数的最后，会调用start()方法，启动sendThread和eventThread
 
 ###四.SendThread
-SendThread用于发起请求，并处理相应。同时产生心跳信息。
+SendThread用于发起和接受请求，并处理相应。同时产生心跳信息。
 
 SendThread继承了Thread。
 
@@ -98,7 +96,7 @@ SendThread继承了Thread。
             
 最开始完成了三件事情
 
-1.	ClientCnxnSocket 中引入SendThread和sessionId
+1.	在ClientCnxnSocket 中引入SendThread和sessionId
 2.	将ClientCnxnSocket的now置成当前时间
 3.	将ClientCnxnSocket的最后发送和最后心跳时间置成当前时间
 
@@ -130,8 +128,9 @@ ClientCnxn内部维护了一个表示连接状态的volatile变量state，
 	  
 如果连接尚未建立，先判断是否为第一次建立，如果不是第一次，则随机等待一段时间。
 
-
 否则调用startConnect方法建立连接。
+
+startConnect过程：
 
 1.	将state状态置为CONNECTING
 2.	判断rwServerAddress是否为空，如果不为空，则将其置为连接地址。否则调用hostProvider产生连接地址。
@@ -151,6 +150,8 @@ ClientCnxn内部维护了一个表示连接状态的volatile变量state，
 
 #####第五步.发送心跳
 如果已经连接上，即state状态为CONNECTED或者CONNECTEDREADONLY，默认在读超时的一半时间发送心跳。发送心跳使用sendPing()方法。
+
+构造RequestHeader(-2, OpCode.ping)，并且调用queuePacket方法发送这个Header。
 
 #####第六步.发送心跳给RW server
 如果state为CONNECTEDREADONLY，那么将使用pingRwServer()发送心跳给rw server。
@@ -184,6 +185,9 @@ pingRwServer()方法直接使用Socket建立连接，并且查看相应是否为
 执行最后的数据发送和处理，同时关闭clientCnxnSocket。
 
 使用EventThread发送连接关闭事件，并且记录日志。
+
+####ClientCnxn时序图
+![image](http://)
 
 ####五.Packet
 

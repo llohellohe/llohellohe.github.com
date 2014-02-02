@@ -73,6 +73,114 @@ Nagle算法是为了合并一些小的TCP包，避免因为多个小包导致网
 7.	遍历selector的SelectionKey，如果Key可读，则调用read方法，将数据读到ByteBuffer中。
 8.	当事件发生后，需要继续注册，以便获得下一步的数据。
 
- 
+
+###数据传输
+####doTransport方法
+通过Selector注册CONNECT\READ\WRITE事件到SocketChannel上。
+
+*	如果事件类型为CONNECT，则更新相关时间以及调用SendThread的primeConnection方法。
+*	如果事件类型为READ或者WRITE，调用doIO方法。
+
+		//等待到至少一个Select事件，超时时间为waitTimeout
+ 		selector.select(waitTimeOut);
+        Set<SelectionKey> selected;
+        synchronized (this) {
+        	//获得SelectionKey
+            selected = selector.selectedKeys();
+        }
+        // Everything below and until we get back to the select is
+        // non blocking, so time is effectively a constant. That is
+        // Why we just have to do this once, here
+        updateNow();
+        for (SelectionKey k : selected) {
+            SocketChannel sc = ((SocketChannel) k.channel());
+            //查看返回的集合中是否包含CONNECT事件
+            if ((k.readyOps() & SelectionKey.OP_CONNECT) != 0) {
+            	 //查看连接是否已经就绪
+                if (sc.finishConnect()) {
+                    updateLastSendAndHeard();
+                    sendThread.primeConnection();
+                }
+                //查看返回的集合中是否包含READ事件和WRITE事件
+            } else if ((k.readyOps() & (SelectionKey.OP_READ | SelectionKey.OP_WRITE)) != 0) {
+                doIO(pendingQueue, outgoingQueue, cnxn);
+            }
         
+
+####doIO 方法
+ 
+#####read
+如果SelectionKey 是可读的，那么则读取数据。
+
+读之前首先需要知道数据的大小，即将数据读入到lenBuffer中，然后读取数据的长度。
+
+根据这个长度初始化IncomingBuffer的大小。
+
+
+	if (sockKey.isReadable()) {
+            int rc = sock.read(incomingBuffer);
+            if (rc < 0) {
+                throw new EndOfStreamException(
+                        "Unable to read additional data from server sessionid 0x"
+                                + Long.toHexString(sessionId)
+                                + ", likely server has closed socket");
+            }
+            if (!incomingBuffer.hasRemaining()) {
+                incomingBuffer.flip();
+                if (incomingBuffer == lenBuffer) {
+                    recvCount++;
+                    readLength();
+                } else if (!initialized) {
+                    readConnectResult();
+                    enableRead();
+                    if (findSendablePacket(outgoingQueue,
+                            cnxn.sendThread.clientTunneledAuthenticationInProgress()) != null) {
+                        // Since SASL authentication has completed (if client is configured to do so),
+                        // outgoing packets waiting in the outgoingQueue can now be sent.
+                        enableWrite();
+                    }
+                    lenBuffer.clear();
+                    incomingBuffer = lenBuffer;
+                    updateLastHeard();
+                    initialized = true;
+                } else {
+                    sendThread.readResponse(incomingBuffer);
+                    lenBuffer.clear();
+                    incomingBuffer = lenBuffer;
+                    updateLastHeard();
+                }
+            }
+         
+    }    
+
+#####readConnectResult
+如果尚未初始化，则调用readConnectResult方法。
+
+readConnectResult 方法负责将接收到的ByteBuffer转成BinaryInputArchive，
+
+ConnectResponse通过BinaryInputArchive的deserialize出各个数据：
+
+1.	int protocolVersion
+2.	int timeOut
+3.	long sessionId
+4.	byte[] password
+5.	boolean readOnly //是否为只读模式
+
+#####开启和关闭读、写
+比如开启读，在SelectionKey中插入READ操作
+
+        int i = sockKey.interestOps();
+        if ((i & SelectionKey.OP_READ) == 0) {
+            sockKey.interestOps(i | SelectionKey.OP_READ);
+        }
+
+比如关闭读，
+
+        int i = sockKey.interestOps();
+        if ((i & SelectionKey.OP_WRITE) != 0) {
+            sockKey.interestOps(i & (~SelectionKey.OP_WRITE));
+        }
+
+#####write 写
+Packet 是内部协议数据的封装。
 

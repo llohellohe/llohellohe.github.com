@@ -98,5 +98,4 @@ ClientCnxnSocketNIO是ClientCnxnSocket的NIO实现，
         sock.write(pbb);
 
 
-###需要看的
-1.	Java NIO  Selector和SelectionKey机制  ByteBuffer
+Packet定义见[此文的第五部分](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-client-cnxn.html)。
