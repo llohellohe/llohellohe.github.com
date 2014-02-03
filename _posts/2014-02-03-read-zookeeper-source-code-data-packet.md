@@ -3,7 +3,7 @@ layout: post
 category: 分布式
 description: 本文介绍了分布式协调系统ZooKeeper的数据传输协议实现。
 keywords: 分布式,ZooKeeper,ZooKeeper源代码,ZooKeeper数据传输协议,Packet,Jute
-title: ZooKeeper源代码解读之Packet
+title: ZooKeeper源代码解读之数据传输协议Packet
 tags: [分布式,ZooKeeper,ZooKeeper源代码]
 summary: ZooKeeper源代码解读之传输协议
 ---
