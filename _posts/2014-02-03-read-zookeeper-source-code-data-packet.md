@@ -1,3 +1,14 @@
+---
+layout: post
+category: 分布式
+description: 本文介绍了分布式协调系统ZooKeeper的数据传输协议实现。
+keywords: 分布式,ZooKeeper,ZooKeeper源代码,ZooKeeper数据传输协议,Packet,Jute
+title: ZooKeeper源代码解读之Packet
+tags: [分布式,ZooKeeper,ZooKeeper源代码]
+summary: ZooKeeper源代码解读之传输协议
+---
+Tips:[ZooKeeper学习目录](https://github.com/llohellohe/zookeeper/blob/master/README.md)
+
 ###一.传输包 Packet
 Packet是ZooKeeper的传输包，封装了ZooKeeper数据传输所需要的相关信息。
 
@@ -129,3 +140,4 @@ RequestHeader的反序列化方法：
     xid=a_.readInt("xid");
     type=a_.readInt("type");
     a_.endRecord(tag)
+
