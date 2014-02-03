@@ -3,7 +3,7 @@ layout: post
 category: 分布式
 description: 本文介绍了分布式协调系统ZooKeeper的解读目录。
 keywords: 分布式,ZooKeeper,ZooKeeper源代码,ZooKeeper解读
-title: ZooKeeper源代码解读之数据传输协议Packet
+title: ZooKeeper解读系列目录
 tags: [分布式,ZooKeeper,ZooKeeper源代码]
 summary: ZooKeeper解读系列目录
 ---
