@@ -9,12 +9,12 @@
 
 var art1 = document.getElementById('art-1');
 addListener(art1, 'click', function() {
-  ga('send', 'event', 'article', 'read-article', 'zookeeper');
+  ga('send', 'event', 'article', 'read-article', 'zookeeper1');
 });
 
 var art2 = document.getElementById('art-2');
 addListener(art2, 'click', function() {
-  ga('send', 'event', 'article', 'read-article', 'zookeeper');
+  ga('send', 'event', 'article', 'read-article', 'zookeeper1');
 });
 
 function addListener(element, type, callback) {
