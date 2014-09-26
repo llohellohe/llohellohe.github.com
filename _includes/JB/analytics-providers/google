@@ -14,7 +14,7 @@ addListener(art1, 'click', function() {
 
 var art2 = document.getElementById('art-2');
 addListener(art2, 'click', function() {
-  ga('send', 'event', 'article', 'read-article', 'zookeeper1');
+  ga('send', 'event', 'article', 'read-article', 'zookeeper2');
 });
 
 function addListener(element, type, callback) {
