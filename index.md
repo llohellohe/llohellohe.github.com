@@ -10,9 +10,11 @@ tagline: 河蟹打败地球
 
 ## 最近发表的文章
 
+{% assign counter=0 %}
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+	{% assign counter=counter | plus:1 %} 
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a id="art-{{ counter }}" href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
