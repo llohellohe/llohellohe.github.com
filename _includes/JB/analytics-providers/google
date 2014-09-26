@@ -18,7 +18,9 @@ addListener(art2, 'click', function() {
 });
 
 function addListener(element, type, callback) {
+if(element != null){
  if (element.addEventListener) element.addEventListener(type, callback);
  else if (element.attachEvent) element.attachEvent('on' + type, callback);
+}
 }
 </script>
