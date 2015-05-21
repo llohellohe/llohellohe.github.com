@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>生日快乐奥鱼头</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="https://www.hackerzhou.me/ex_love/css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="https://www.hackerzhou.me/ex_love/js/jquery.js"></script>
+	<script type="text/javascript" src="https://www.hackerzhou.me/ex_love/js/garden_dev.js"></script>
+    <script type="text/javascript" src="https://www.hackerzhou.me/ex_love/js/functions_dev.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 今天是2011年8月26日，你的生日啦,祝你生日快乐。</span><br />
+				<span class="space"/><span class="comments">* 距离我们毕业已经一年多了，已经好几年没有给你买生日蛋糕，好几年没有和你亲口说生日快乐了。</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"杨期"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"奥鱼头"</span>);<br />
+				<span class="comments">// 以前一次很小的接触就爱上你了，觉得你就会是我的老婆 </span><br />
+				i.love(u);<br />
+				<span class="comments">// 高二的时候我们在一起拉，每天偷偷的牵手，传纸条，每两周一起回家，走很远很远的路</span><br />
+				u.accepted();<br />
+				<span class="comments">// 不过这些在几年前就过去了啦，没你的日子，我一直都很想你，想你的时候，我就会写你的名字，一笔一划的写在身上</span><br />
+				i.miss(u);<br />
+				<span class="comments">// 不过我都不知道你现在在干吗，你过的好吗。</span><br />
+				<span class="comments">// 还记的你说过，毕业后我们复合吗，过了一年多了，可能你应该已经忘记了吧。也许你已经和你的另一半相爱了，也许你们会很快的结婚，有小孩</span><br />
+				<span class="comments">// 可是我就是抑制不住自己，就算你结婚、生小孩了，我还是想和你在一起，因为我的心一直一直都是属于你的。</span><br />
+				<span class="comments">// 也许未来，我也会为了忘记你而结婚，而生小孩，但是我想的心，会一直等着你回来，我的心里只有你，我会一直爱你的，从现在到永远</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Baby Smallyu, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- yangqi</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2003, 09, 01);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
